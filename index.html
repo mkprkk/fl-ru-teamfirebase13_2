@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" src="./index.css" />
+    <title>Interactive Form</title>
+  </head>
+  <body>
+    <header>
+      <h1>Complete Your Request to Get a Loan</h1>
+      <h2> Use 2048-bit Encryption to Keep Your Information Safe</h2>
+      <div class="progress"></div>
+    </header>
+    <main class="form__container">
+      <form class="form" id="step-1">
+        <fieldset form="step-1">
+          <label class="form__element-label"
+            ><span>Loan amount up to</span>
+            <select class="form__select" name="loanAmount">
+              <option value="200-500">$200 — $500</option>
+              <option value="500-1000">$500 — $1,000</option>
+              <option value="1000-2500">$1,000 — $2,500</option>
+              <option value="2500-5000">$2,500 — $5,000</option>
+            </select>
+          </label>
+          <label class="form__element-label lower-amount"
+            ><span>Would you also consider a lower amount?</span>
+            <input
+              class="form__radio"
+              type="radio"
+              value="no"
+              name="lowerAmount"
+            />
+            <input
+              class="form__radio"
+              type="radio"
+              value="yes"
+              name="lowerAmount"
+            />
+          </label>
+          <label class="form__element-label">
+            <span>Loan purpose</span>
+            <select class="form__select" name="loanPurpose">
+              <option value="debt-consolidation">Debt consolidation</option>
+              <option value="everyday-bills-emergency">
+                Everyday Bills/Emergency
+              </option>
+              <option value="credit-card-consolidation">
+                Credit card consolidation
+              </option>
+              <option value="auto-purchase">Auto purchase</option>
+              <option value="home-improvement">Home improvement</option>
+              <option value="medical">Medical</option>
+              <option value="business">Business</option>
+              <option value="taxes">Taxes</option>
+              <option value="rent-or-mortgage">Rent or mortgage</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+          <label class="form__element-label email">
+            <span>Your Email</span>
+            <input
+              type="email"
+              name="email"
+              class="form__input"
+              placeholder="e.g. johnsmith@gmail.com"
+            />
+          </label>
+          <label
+            class="form__element-label"
+            data-including-text="Your phone is never shared without permission"
+          >
+            <span>Primary phone</span>
+            <input type="tel" name="primaryNumber" class="form__input" />
+          </label>
+          <label
+            class="form__element-label"
+            data-including-text="Last 4 digits of SSN is used to verify your identity"
+          >
+            <span>Last 4 digits of SSN</span>
+            <input type="text" name="lastFourOfSSN" class="form__input" />
+          </label>
+          <label class="form__element-label">
+            <span>First Name</span>
+            <input type="text" name="firstName" class="form__input" />
+          </label>
+          <label class="form__element-label">
+            <span>Last Name</span>
+            <input type="text" name="lastName" class="form__input" />
+          </label>
+          <label class="form__element-label">
+            <span>Date of Birth</span>
+            <input
+              type="text"
+              name="dateOfBirth"
+              class="form__input"
+              maxlength="14"
+            />
+          </label>
+          <label class="form__element-label">
+            <span>Your Zip Code</span>
+            <input type="text" name="zipCode" class="form__input" />
+          </label>
+          <label class="form__element-label">
+            <span>Street Address</span>
+            <input type="text" name="streetAddress" class="form__input" />
+          </label>
+        </fieldset>
+        <div class="form__footer">
+          <p class="form__disclaimer">
+            ** You are providing your express written consent to 1/ receive
+            information and marketing e-mail messages and notifications from us
+            and third party marketers we contract with 2/ receive SMS/text
+            messages and autodialed or prerecorded calls from lenders and third
+            party marketers and partners on the telephone number provided in the
+            form (even if your number can be found in Do-Not-Call-Lists of any
+            kind). In case you do not wish to receive this kind of information
+            by messages, please text “STOP” to 4343297132. I understand that my
+            consent is not required to obtain a loan.
+          </p>
+        </div>
+      </form>
+      <form class="form" id="step-2">
+        <fieldset form="step-2">
+          <label class="form__element-label"
+            ><span>State</span>
+            <select class="form__select" name="state">
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </label>
+          <label class="form__element-label"
+            ><span>City</span>
+            <select class="form__select">
+              <!-- Надо будет искать в интернете -->
+            </select>
+          </label>
+          <label class="form__element-label">
+            <span>Time of residence</span>
+            <select class="form__select" name="timeOfResidence">
+              <option value="10+_years">10+ Years</option>
+              <option value="over-5-years">Over 5 Years</option>
+              <option value="2-to-5-years">2 to 5 Years</option>
+              <option value="1-to-2 years">1 to 2 Years</option>
+              <option value="less-than-a-year">Less Than A Year</option>
+            </select>
+          </label>
+          <label class="form__element-label own-or-rent">
+            <span>Do You own or Rent?</span>
+            <input
+              type="radio"
+              value="rent"
+              name="OwnOrRent"
+              class="form__radio"
+            />
+            <input
+              type="radio"
+              value="own"
+              name="OwnOrRent"
+              class="form__radio"
+            />
+          </label>
+          <label class="form__element-label">
+            <span>What is Your Source of Income?</span>
+            <select class="form__select" name="sourceOfIncome">
+              <option value="job-income">Job income</option>
+              <option value="self-employement">Self employement</option>
+              <option value="benefits">Benefits</option>
+              <option value="military-pay">Military Pay</option>
+            </select>
+          </label>
+          <label class="form__element-label">
+            <span>Time employed</span>
+            <select class="form__select" name="time-employed">
+              <option value="5-years-or-more">5 Years or more</option>
+              <option value="3-4--years">3 – 4 Years</option>
+              <option value="1-2--years">1 – 2 Years</option>
+              <option value="12-month">3 – 12 Months</option>
+              <option value="3-month-or-less">3 Months or less</option>
+            </select>
+          </label>
+          <label class="form__element-label" data-including-text="Before taxes">
+            <span>Monthly Gross Income</span>
+            <select class="form__select" name="monthly-gross-income">
+              <option value="10000">More than $8,500</option>
+              <option value="8500">$7,001 — $8,500</option>
+              <option value="7000">$5,501 — $7,000</option>
+              <option value="5500">$4,501 — $5,500</option>
+              <option value="4500">$3,501 — $4,500</option>
+              <option value="3500">$2,501 — $3,500</option>
+              <option value="2500">$1,501 — $2,500</option>
+              <option value="1500">Less than $1,500</option>
+            </select>
+          </label>
+          <!-- Нужно придумать как уложить иконки -->
+          <label class="form__element-label next-daypate">
+            <span>Next paydate</span>
+            <input type="text" name="nextPaydate" class="form__input" />
+          </label>
+          <label class="form__element-label">
+            <span>Employer name</span>
+            <input type="text" name="EmployerName" class="form__input" />
+          </label>
+          <label class="form__element-label">
+            <span>Job title</span>
+            <input type="text" name="jobTitle" class="form__input" />
+          </label>
+          <label
+            class="form__element-label"
+            data-including-text="We never contact your employer"
+          >
+            <span>Work Phone</span>
+            <input type="text" name="streetAddress" class="form__input" />
+          </label>
+          <label class="form__element-label">
+            <span>How often are you paid?</span>
+            <select class="form__select" name="paidFrequency">
+              <option value="everyTwoWeeks">Every 2 weeks</option>
+              <option value="twiceAMonth">Twice a month</option>
+              <option value="monthly">Monthly</option>
+              <option value="weekly">Weekly</option>
+            </select>
+          </label>
+          <label class="form__element-label">
+            <span>How is Your Paycheck Recieved?</span>
+            <select class="form__select" name="paycheckRecieve">
+              <option value="electronicDeposit">Electronic Deposit</option>
+              <option value="paperCheck">Paper check</option>
+            </select>
+          </label>
+        </fieldset>
+        <div class="form__footer"></div>
+      </form>
+      <form class="form" id="step-3">
+        <fieldset form="step-3">
+          <label class="form__element-label" data-has-example="true">
+            <span>Bank Routing Number</span>
+            <input type="text" name="bankRoutingNumber" class="form__input" />
+          </label>
+          <label class="form__element-label">
+            <span>Bank name</span>
+            <input type="text" name="bankName" class="form__input" />
+          </label>
+          <label class="form__element-label">
+            <span>Account type</span>
+            <select class="form__select" name="accountType">
+              <option value="savings">Savings</option>
+              <option value="checking">Checking</option>
+            </select>
+          </label>
+          <label class="form__element-label">
+            <span>Months at bank</span>
+            <select class="form__select" name="monthAtBank">
+              <option value="more-than-2-years">More than 2 years</option>
+              <option value="6-12-month">6 – 12 Months</option>
+              <option value="3-6-month">3 – 6 Months</option>
+              <option value="1-3-month">1 – 3 Months</option>
+              <option value="less-than-1-month">Less than 1 Month</option>
+            </select>
+          </label>
+          <label class="form__element-label" data-has-example="true">
+            <span>Bank Account Number</span>
+            <input type="text" name="bankAccountNumber" class="form__input" />
+          </label>
+          <label class="form__element-label">
+            <span>Driver's license or state id</span>
+            <input
+              type="text"
+              name="stateIdOrDriverLicense"
+              class="form__input"
+            />
+          </label>
+          <label class="form__element-label">
+            <span>Issuing state</span>
+            <select class="form__select" name="issuingState">
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </label>
+          <label class="form__element-label">
+            <span>Credit Store</span>
+            <select class="form__select">
+              <option value="720+">Excellent (720 +)</option>
+              <option value="680-719">Good (680 – 719)</option>
+              <option value="640-679">Fair (640 – 679)</option>
+              <option value="-639">Poor (639 or less)</option>
+              <option value="dont-know">I don't know</option>
+            </select>
+          </label>
+          <label class="form__element-label">
+            <span>Social Security Number</span>
+            <input type="text" name="SSN" class="form__input" />
+          </label>
+          <div class="form__footer"></div>
+        </fieldset>
+      </form>
+    </main>
+
+    <template id="#form-footer-block">
+      <nav class="form__navigation">
+        <button type="button" class="form__button form__prev-button" name="prevButton">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.4375 18.75L4.6875 12L11.4375 5.25M5.625 12H19.3125"
+              stroke="white"
+              stroke-width="2.25"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="nav-icon"
+            />
+          </svg>
+        </button>
+        <template id="#form-button">
+          <button type="button" class="form__button" name="nextButton">
+            <span>Next Step</span>
+            <svg
+              width="25"
+              height="24"
+              viewBox="0 0 25 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.4006 5.25L20.1506 12L13.4006 18.75M19.2131 12H5.52563"
+                stroke="white"
+                stroke-width="2.25"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="nav-icon"
+              />
+            </svg>
+          </button>
+          <button type="button" class="form__button" name="requestButton">
+            <span>Request Cash</span>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21.75 6L11.25 18L6.75 13.5M6.75 18L2.25 13.5M17.25 6L10.875 13.3125"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                nav-icon
+              />
+            </svg>
+          </button>
+        </template>
+      </nav>
+      <div class="form__safety-container">
+        <div class="form__safety-element">
+          <svg
+            width="15"
+            height="21"
+            viewBox="0 0 15 21"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.48381 14.7549C6.88956 14.7561 6.32005 14.9928 5.90007 15.4131C5.48009 15.8334 5.24391 16.403 5.24329 16.997V17.2015H9.72671V16.997C9.72608 16.4026 9.48957 15.8326 9.06909 15.4123C8.6486 14.9919 8.07847 14.7555 7.48381 14.7549Z"
+              fill="#B8B8C1"
+              stroke="#B8B8C1"
+              stroke-width="0.237766"
+              class="safety-icon"
+            />
+            <path
+              d="M12.3644 8.41363V5.38687C12.3089 4.1314 11.771 2.94575 10.8627 2.07696C9.95432 1.20818 8.74568 0.723267 7.48855 0.723267C6.23142 0.723267 5.02278 1.20818 4.11445 2.07696C3.20612 2.94575 2.66817 4.1314 2.61268 5.38687V8.41363H0.169983V20.4898H14.8V8.41363H12.3644ZM5.0958 5.38687C5.0958 5.07323 5.1576 4.76265 5.27767 4.47288C5.39774 4.18311 5.57372 3.91982 5.79558 3.69804C6.01743 3.47626 6.28082 3.30034 6.57068 3.18031C6.86055 3.06029 7.17123 2.99851 7.48498 2.99851C7.79873 2.99851 8.10941 3.06029 8.39928 3.18031C8.68915 3.30034 8.95253 3.47626 9.17439 3.69804C9.39624 3.91982 9.57223 4.18311 9.6923 4.47288C9.81236 4.76265 9.87416 5.07323 9.87416 5.38687V8.41363H5.0958V5.38687ZM4.07068 18.3737V16.997C4.07116 16.3817 4.23809 15.7779 4.5538 15.2497C4.86951 14.7215 5.32224 14.2884 5.86405 13.9964C5.60569 13.6881 5.44069 13.3124 5.38843 12.9136C5.33617 12.5148 5.39881 12.1094 5.56901 11.745C5.7392 11.3805 6.00988 11.0722 6.34926 10.8561C6.68864 10.6401 7.08264 10.5253 7.48498 10.5253C7.88733 10.5253 8.28132 10.6401 8.6207 10.8561C8.96008 11.0722 9.23076 11.3805 9.40096 11.745C9.57115 12.1094 9.63379 12.5148 9.58153 12.9136C9.52927 13.3124 9.36427 13.6881 9.10591 13.9964C9.64773 14.2884 10.1005 14.7215 10.4162 15.2497C10.7319 15.7779 10.8988 16.3817 10.8993 16.997V18.3737H4.07068Z"
+              fill="#B8B8C1"
+              stroke="#B8B8C1"
+              stroke-width="0.237766"
+              class="safety-icon"
+            />
+            <path
+              d="M7.48348 11.7019C7.29537 11.7019 7.11149 11.7577 6.95509 11.8622C6.79869 11.9667 6.67679 12.1152 6.60481 12.289C6.53282 12.4628 6.51399 12.654 6.55068 12.8385C6.58738 13.023 6.67796 13.1925 6.81097 13.3255C6.94398 13.4585 7.11344 13.5491 7.29793 13.5858C7.48242 13.6225 7.67365 13.6036 7.84743 13.5316C8.02122 13.4597 8.16975 13.3378 8.27426 13.1814C8.37876 13.025 8.43454 12.8411 8.43454 12.653C8.43454 12.4007 8.33434 12.1588 8.15598 11.9805C7.97762 11.8021 7.73571 11.7019 7.48348 11.7019Z"
+              fill="#B8B8C1"
+              stroke="#B8B8C1"
+              stroke-width="0.237766"
+              class="safety-icon"
+            />
+          </svg>
+          <span class="form__safety-top">Data</span>
+          <span class="form__safety-bot">Protected</span>
+        </div>
+        <div class="form__safety-element">
+          <svg
+            width="19"
+            height="21"
+            viewBox="0 0 19 21"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18.14 5.802V0.5H0.640015V5.802H2.30601V7.31H0.640015V12.61H2.30601V14.118H0.640015V19.42H2.30601V20.5H3.47801V19.42H15.302V20.5H16.474V19.42H18.14V14.118H16.474V12.61H18.14V7.31H16.474V5.802H18.14ZM10.224 2.564H13.556V3.736H10.224V2.564ZM7.72401 2.526H8.97201V3.774H7.72401V2.526ZM5.22401 2.526H6.47201V3.774H5.22401V2.526ZM13.838 13.742C13.8386 14.1095 13.7389 14.4703 13.5496 14.7853C13.3604 15.1004 13.0888 15.3579 12.764 15.53L9.39001 17.318L6.01601 15.53C5.69127 15.3579 5.41964 15.1004 5.23039 14.7853C5.04114 14.4703 4.94143 14.1095 4.94201 13.742V7.818L9.39001 6.558L13.838 7.818V13.742Z"
+              fill="#B8B8C1"
+              stroke="#B8B8C1"
+              stroke-width="0.2"
+              class="safety-icon"
+            />
+            <path
+              d="M9.39002 7.776L6.11402 8.7V13.738C6.11363 13.8926 6.15553 14.0445 6.2352 14.177C6.31487 14.3095 6.42927 14.4178 6.56602 14.49L9.39002 15.992L12.214 14.5C12.3508 14.4278 12.4652 14.3195 12.5448 14.187C12.6245 14.0545 12.6664 13.9026 12.666 13.748V8.7L9.39002 7.776ZM9.39002 14.01C9.28611 14.0173 9.1818 14.0035 9.0834 13.9694C8.98499 13.9352 8.89453 13.8815 8.8175 13.8114C8.74047 13.7412 8.67847 13.6562 8.63524 13.5615C8.59201 13.4667 8.56846 13.3641 8.56602 13.26C8.56602 12.84 8.90202 12.522 9.39002 12.522C9.87802 12.522 10.216 12.84 10.216 13.26C10.2133 13.3642 10.1895 13.4668 10.1461 13.5616C10.1026 13.6564 10.0404 13.7414 9.96324 13.8115C9.88605 13.8815 9.79546 13.9353 9.69695 13.9694C9.59843 14.0035 9.49402 14.0173 9.39002 14.01ZM9.95202 12.272H8.82802L8.54602 9.572H10.234L9.95202 12.272Z"
+              fill="#B8B8C1"
+              stroke="#B8B8C1"
+              stroke-width="0.2"
+              class="safety-icon"
+            />
+          </svg>
+          <span class="form__safety-top">2048</span>
+          <span class="form__safety-bot">Bit sequired</span>
+        </div>
+        <div class="form__safety-element">
+          <svg
+            width="20"
+            height="21"
+            viewBox="0 0 20 21"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16.034 6.712C16.51 6.71178 16.9828 6.78878 17.434 6.94V2.826L9.23003 0.5L1.03003 2.826V14.088C1.02916 14.7098 1.198 15.32 1.51837 15.8529C1.83874 16.3858 2.29848 16.8211 2.84803 17.112L9.24803 20.5L15.648 17.112C16.3577 16.7362 16.9122 16.1222 17.214 15.378C16.8377 15.4792 16.4497 15.5303 16.06 15.53C15.4398 15.5314 14.8263 15.4012 14.26 15.148L9.26003 17.784L3.48003 14.72V4.7L9.26203 3.062L15.012 4.7V6.836C15.3466 6.75441 15.6897 6.71279 16.034 6.712Z"
+              fill="#B8B8C1"
+              stroke="#B8B8C1"
+              stroke-width="0.2"
+              class="safety-icon"
+            />
+            <path
+              d="M16.034 7.83603C15.3777 7.83606 14.7368 8.03582 14.1967 8.40878C13.6565 8.78174 13.2426 9.31023 13.01 9.92403L7.66605 9.91203C7.42901 9.6572 7.25783 9.3483 7.1674 9.01222C7.07698 8.67614 7.07004 8.32305 7.14721 7.98368C7.22437 7.64431 7.38329 7.32893 7.61014 7.06499C7.83699 6.80104 8.12489 6.59653 8.44881 6.46924C8.77273 6.34195 9.12285 6.29573 9.46871 6.33462C9.81456 6.37351 10.1457 6.49631 10.4332 6.69236C10.7208 6.8884 10.9561 7.15174 11.1187 7.45947C11.2813 7.7672 11.3662 8.11 11.366 8.45803C11.3658 8.57326 11.3565 8.68828 11.338 8.80203H12.284C12.5987 8.29476 13.0122 7.85604 13.5 7.51203C13.61 7.43603 13.722 7.36603 13.836 7.30003V5.58403L9.23605 4.28003L4.63605 5.58403V14.012L9.23605 16.454L13.11 14.414C12.7909 14.1316 12.5147 13.8042 12.29 13.442H7.66205V12.218H13.006C13.2147 12.7698 13.5704 13.254 14.0345 13.6182C14.4986 13.9824 15.0535 14.2127 15.6391 14.2842C16.2247 14.3557 16.8187 14.2656 17.3568 14.0237C17.8949 13.7819 18.3566 13.3974 18.6919 12.912C19.0272 12.4266 19.2233 11.8587 19.259 11.2699C19.2947 10.681 19.1687 10.0936 18.8945 9.57118C18.6204 9.0488 18.2086 8.61136 17.7037 8.30622C17.1988 8.00108 16.62 7.83987 16.03 7.84003L16.034 7.83603ZM16.034 11.752C15.8951 11.752 15.7593 11.7108 15.6438 11.6336C15.5283 11.5564 15.4384 11.4466 15.3853 11.3182C15.3322 11.1898 15.3184 11.0486 15.3457 10.9123C15.3729 10.7761 15.44 10.651 15.5384 10.5529C15.6367 10.4548 15.762 10.3881 15.8983 10.3613C16.0346 10.3344 16.1758 10.3486 16.3041 10.402C16.4323 10.4555 16.5418 10.5458 16.6187 10.6615C16.6956 10.7772 16.7364 10.9131 16.736 11.052C16.7355 11.2379 16.6613 11.4159 16.5297 11.5471C16.3981 11.6783 16.2199 11.752 16.034 11.752Z"
+              fill="#B8B8C1"
+              stroke="#B8B8C1"
+              stroke-width="0.2"
+              class="safety-icon"
+            />
+          </svg>
+          <span class="form__safety-top">SSL</span>
+          <span class="form__safety-bot">Security</span>
+        </div>
+      </div>
+    </template>
+
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
