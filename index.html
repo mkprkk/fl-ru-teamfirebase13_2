@@ -17,8 +17,8 @@
       <div class="progress"></div>
     </header>
     <main class="form__container">
-      <form class="form" id="step-1">
-        <fieldset form="step-1">
+      <form class="form">
+        <fieldset>
           <div class="form__element" id="test">
             <span class="form__element-title">Loan amount up to</span>
             <ul class="form__select" name="loanAmount">
@@ -137,8 +137,8 @@
           </p>
         </div>
       </form>
-      <form class="form" id="step-2">
-        <fieldset form="step-2">
+      <form class="form">
+        <fieldset>
           <div class="form__element">
             <span class="form__element-title">State</span>
             <select class="form__select" name="state">
@@ -310,8 +310,8 @@
           <div class="form__footer-block"></div>
         </div>
       </form>
-      <form class="form" id="step-3">
-        <fieldset form="step-3">
+      <form class="form">
+        <fieldset>
           <div class="form__element" data-has-example="true">
             <span class="form__element-title">Bank Routing Number</span>
             <input type="text" name="bankRoutingNumber" class="form__input" />
@@ -433,7 +433,7 @@
         <button
           type="button"
           class="form__button form__prev-button"
-          name="prevButton"
+          id="prevButton"
         >
           <svg
             width="24"
@@ -453,7 +453,7 @@
           </svg>
         </button>
         <template id="next-button">
-          <button type="button" class="form__button" name="nextButton">
+          <button type="button" class="form__button" id="nextButton">
             <span>Next Step</span>
             <svg
               width="25"
@@ -474,7 +474,7 @@
           </button>
         </template>
         <template id="request-button">
-          <button type="button" class="form__button" name="requestButton">
+          <button type="button" class="form__button" id="requestButton">
             <span>Request Cash</span>
             <svg
               width="24"
