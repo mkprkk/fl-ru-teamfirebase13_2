@@ -1,0 +1,264 @@
+/* Общие селекторы */
+body {
+  width: 384px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  position: relative;
+}
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+/* Хэдер */
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  margin-bottom: 32px;
+}
+.header__text-container {
+  padding-inline: 53px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+header h1 {
+  font-size: 21px;
+}
+header h2 {
+  font-size: 15px;
+  font-weight: 400;
+  color: #767681;
+}
+/* Прогресс */
+.progress {
+  width: 100%;
+  height: 8px;
+  background-color: #f0f0f8;
+  border-radius: 1000px;
+  position: relative;
+}
+.progress::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 1000px;
+  background-color: #b16612;
+  position: absolute;
+  transform-origin: left;
+  transform: scaleX(1);
+}
+.progress::before {
+  content: "100%";
+  text-align: center;
+  align-content: center;
+  font-size: 15px;
+  width: 42px;
+  height: 36px;
+  color: white;
+  border-radius: 9px 9px 0 0;
+  bottom: 0;
+  background-color: #ca7515;
+  position: absolute;
+  z-index: 1;
+  left: calc(100% - 42px);
+}
+/* Форма */
+.form {
+}
+.form__button {
+  background-color: #ca7515;
+  padding: 20px;
+  border-radius: 14px;
+  color: white;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  place-content: center;
+  gap: 6px;
+}
+.form__button .form__prev-button {
+}
+.form__container {
+}
+.form__disclaimer {
+  color: #767681;
+  font-size: 13px;
+  padding-top: 18px;
+  border-top: #767681 1px solid;
+}
+.form__element {
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f8;
+  border-radius: 10px;
+  position: relative;
+  padding: 26.5px 16px 26.5px 16px;
+}
+.form__element:has(.form__select)::after {
+  content: "";
+  background-image: url("../assets/images/arrow.svg");
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 40%;
+  left: 90%;
+  transform: rotate(var(--rotate));
+  transition: transform 0.2s;
+}
+.email {
+  background-color: white;
+  border: 1px black solid;
+  padding: 10.5px 16px 10.5px 16px;
+  gap: 5px;
+}
+.email .form__input {
+  position: initial;
+  visibility: initial;
+}
+.email .form__element-title {
+  padding: initial;
+}
+.form__element-title {
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+.form__footer {
+  margin-top: 24px;
+}
+.form__footer-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 17px;
+}
+.form__select,
+.form__input {
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.form__navigation {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 8px;
+}
+.form__radio {
+}
+.form__safety-bot {
+  font-weight: 400;
+  color: #767681;
+}
+.form__safety-container {
+  display: flex;
+  place-content: center;
+  gap: 16px;
+}
+.form__safety-element {
+  display: grid;
+  grid-template-columns: 15px 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.form__safety-element svg {
+  margin-top: 5px;
+  grid-row: span 2;
+}
+.form__safety-top {
+  font-weight: 600;
+}
+.form__select {
+  width: calc(100% - 15%);
+}
+.select-open {
+  background-color: #fbfbff;
+  border: 1px solid rgba(168, 168, 168, 0.521);
+  border-radius: 7px;
+  z-index: 1;
+  overflow: hidden;
+}
+.select-open li:hover {
+  background-color: #ca7515;
+  color: white;
+  cursor: pointer;
+}
+.selected {
+  height: 20px;
+  overflow: hidden;
+}
+.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: static;
+  transition: opacity 0.2s;
+}
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 0.2s;
+}
+/* Специфичные селекторы */
+.lower-amount {
+  background-color: white;
+  border: 1px solid black;
+  padding: 17px;
+  display: flex;
+  gap: 16px;
+}
+.lower-amount .form__element-title {
+  text-align: center;
+  padding-inline: 20px;
+  padding-block: 0;
+}
+.lower-amount-radio-container {
+  display: flex;
+  border: 2px solid #e7f6e8;
+  border-radius: 8px;
+  background-color: rgb(202, 202, 202);
+  gap: 1px;
+  overflow: hidden;
+}
+.lower-amount-radio-element {
+  font-weight: 400;
+  display: flex;
+  width: 50%;
+  text-align: center;
+  font-size: 15px;
+  padding: 9px 0 9px 16px;
+  background-color: white;
+}
+.next-daypate {
+}
+.own-or-rent {
+}
+/* Иконки */
+.nav-icon {
+}
+.safety-icon {
+}
+/* Модалка */
+.email__text-button {
+}
+.email-dialog {
+}
+.email-dialog__is-animated {
+}
+.email-dialog__button-confirm {
+}
+.email-dialog__button-container {
+}
+.email-dialog__button-edit {
+}
+.email-dialog__content {
+}

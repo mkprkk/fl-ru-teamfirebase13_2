@@ -3,44 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" src="./index.css" />
+    <link rel="stylesheet" href="./styles/globals.css" />
+    <link rel="stylesheet" href="./assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
     <title>Interactive Form</title>
   </head>
   <body>
     <header>
-      <h1>Complete Your Request to Get a Loan</h1>
-      <h2> Use 2048-bit Encryption to Keep Your Information Safe</h2>
+      <div class="header__text-container">
+        <h1>Complete Your Request to Get a Loan</h1>
+        <h2>We Use 2048-bit Encryption to Keep Your Information Safe</h2>
+      </div>
       <div class="progress"></div>
     </header>
     <main class="form__container">
       <form class="form" id="step-1">
         <fieldset form="step-1">
-          <label class="form__element-label"
-            ><span>Loan amount up to</span>
-            <select class="form__select" name="loanAmount">
-              <option value="200-500">$200 — $500</option>
-              <option value="500-1000">$500 — $1,000</option>
-              <option value="1000-2500">$1,000 — $2,500</option>
-              <option value="2500-5000">$2,500 — $5,000</option>
-            </select>
-          </label>
-          <label class="form__element-label lower-amount"
-            ><span>Would you also consider a lower amount?</span>
-            <input
-              class="form__radio"
-              type="radio"
-              value="no"
-              name="lowerAmount"
-            />
-            <input
-              class="form__radio"
-              type="radio"
-              value="yes"
-              name="lowerAmount"
-            />
-          </label>
-          <label class="form__element-label">
-            <span>Loan purpose</span>
+          <div class="form__element" id="test">
+            <span class="form__element-title">Loan amount up to</span>
+            <ul class="form__select" name="loanAmount">
+              <li class="select__value"></li>
+              <li value="200-500">$200 — $500</li>
+              <li value="500-1000">$500 — $1,000</li>
+              <li value="1000-2500">$1,000 — $2,500</li>
+              <li value="2500-5000">$2,500 — $5,000</li>
+            </ul>
+          </div>
+          <div class="form__element lower-amount">
+            <span class="form__element-title"
+              >Would you also consider a lower amount?</span
+            >
+            <span class="lower-amount-radio-container">
+              <label class="lower-amount-radio-element">
+                No
+                <input
+                  class="form__radio"
+                  type="radio"
+                  value="no"
+                  name="lowerAmount"
+                />
+              </label>
+              <label class="lower-amount-radio-element">
+                Yes
+                <input
+                  class="form__radio"
+                  type="radio"
+                  value="yes"
+                  name="lowerAmount"
+                />
+              </label>
+            </span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Loan purpose</span>
             <select class="form__select" name="loanPurpose">
               <option value="debt-consolidation">Debt consolidation</option>
               <option value="everyday-bills-emergency">
@@ -57,57 +72,58 @@
               <option value="rent-or-mortgage">Rent or mortgage</option>
               <option value="other">Other</option>
             </select>
-          </label>
-          <label class="form__element-label email">
-            <span>Your Email</span>
+          </div>
+          <div class="form__element email">
+            <span class="form__element-title">Your Email</span>
             <input
               type="email"
               name="email"
               class="form__input"
               placeholder="e.g. johnsmith@gmail.com"
             />
-          </label>
+          </div>
           <label
-            class="form__element-label"
+            class="form__element"
             data-including-text="Your phone is never shared without permission"
           >
-            <span>Primary phone</span>
+            <span class="form__element-title">Primary phone</span>
             <input type="tel" name="primaryNumber" class="form__input" />
           </label>
-          <label
-            class="form__element-label"
+          <div
+            class="form__element"
             data-including-text="Last 4 digits of SSN is used to verify your identity"
           >
-            <span>Last 4 digits of SSN</span>
+            <span class="form__element-title">Last 4 digits of SSN</span>
             <input type="text" name="lastFourOfSSN" class="form__input" />
-          </label>
-          <label class="form__element-label">
-            <span>First Name</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">First Name</span>
             <input type="text" name="firstName" class="form__input" />
-          </label>
-          <label class="form__element-label">
-            <span>Last Name</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Last Name</span>
             <input type="text" name="lastName" class="form__input" />
-          </label>
-          <label class="form__element-label">
-            <span>Date of Birth</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Date of Birth</span>
             <input
               type="text"
               name="dateOfBirth"
               class="form__input"
               maxlength="14"
             />
-          </label>
-          <label class="form__element-label">
-            <span>Your Zip Code</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Your Zip Code</span>
             <input type="text" name="zipCode" class="form__input" />
-          </label>
-          <label class="form__element-label">
-            <span>Street Address</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Street Address</span>
             <input type="text" name="streetAddress" class="form__input" />
-          </label>
+          </div>
         </fieldset>
         <div class="form__footer">
+          <div class="form__footer-block"></div>
           <p class="form__disclaimer">
             ** You are providing your express written consent to 1/ receive
             information and marketing e-mail messages and notifications from us
@@ -123,8 +139,8 @@
       </form>
       <form class="form" id="step-2">
         <fieldset form="step-2">
-          <label class="form__element-label"
-            ><span>State</span>
+          <div class="form__element">
+            <span class="form__element-title">State</span>
             <select class="form__select" name="state">
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
@@ -177,15 +193,15 @@
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
             </select>
-          </label>
-          <label class="form__element-label"
-            ><span>City</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">City</span>
             <select class="form__select">
               <!-- Надо будет искать в интернете -->
             </select>
-          </label>
-          <label class="form__element-label">
-            <span>Time of residence</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Time of residence</span>
             <select class="form__select" name="timeOfResidence">
               <option value="10+_years">10+ Years</option>
               <option value="over-5-years">Over 5 Years</option>
@@ -193,33 +209,43 @@
               <option value="1-to-2 years">1 to 2 Years</option>
               <option value="less-than-a-year">Less Than A Year</option>
             </select>
-          </label>
-          <label class="form__element-label own-or-rent">
-            <span>Do You own or Rent?</span>
-            <input
-              type="radio"
-              value="rent"
-              name="OwnOrRent"
-              class="form__radio"
-            />
-            <input
-              type="radio"
-              value="own"
-              name="OwnOrRent"
-              class="form__radio"
-            />
-          </label>
-          <label class="form__element-label">
-            <span>What is Your Source of Income?</span>
+          </div>
+          <div class="form__element own-or-rent">
+            <span class="form__element-title">Do You own or Rent?</span>
+            <span class="own-or-rent-radio-container">
+              <label class="own-or-rent-radio-element">
+                <input
+                  type="radio"
+                  value="rent"
+                  name="OwnOrRent"
+                  class="form__radio"
+                />
+                Rent
+              </label>
+              <label class="own-or-rent-radio-element">
+                <input
+                  type="radio"
+                  value="own"
+                  name="OwnOrRent"
+                  class="form__radio"
+                />
+                Own
+              </label>
+            </span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title"
+              >What is Your Source of Income?</span
+            >
             <select class="form__select" name="sourceOfIncome">
               <option value="job-income">Job income</option>
               <option value="self-employement">Self employement</option>
               <option value="benefits">Benefits</option>
               <option value="military-pay">Military Pay</option>
             </select>
-          </label>
-          <label class="form__element-label">
-            <span>Time employed</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Time employed</span>
             <select class="form__select" name="time-employed">
               <option value="5-years-or-more">5 Years or more</option>
               <option value="3-4--years">3 – 4 Years</option>
@@ -227,9 +253,9 @@
               <option value="12-month">3 – 12 Months</option>
               <option value="3-month-or-less">3 Months or less</option>
             </select>
-          </label>
-          <label class="form__element-label" data-including-text="Before taxes">
-            <span>Monthly Gross Income</span>
+          </div>
+          <div class="form__element" data-including-text="Before taxes">
+            <span class="form__element-title">Monthly Gross Income</span>
             <select class="form__select" name="monthly-gross-income">
               <option value="10000">More than $8,500</option>
               <option value="8500">$7,001 — $8,500</option>
@@ -240,65 +266,69 @@
               <option value="2500">$1,501 — $2,500</option>
               <option value="1500">Less than $1,500</option>
             </select>
-          </label>
+          </div>
           <!-- Нужно придумать как уложить иконки -->
-          <label class="form__element-label next-daypate">
-            <span>Next paydate</span>
+          <div class="form__element next-daypate">
+            <span class="form__element-title">Next paydate</span>
             <input type="text" name="nextPaydate" class="form__input" />
-          </label>
-          <label class="form__element-label">
-            <span>Employer name</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Employer name</span>
             <input type="text" name="EmployerName" class="form__input" />
-          </label>
-          <label class="form__element-label">
-            <span>Job title</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Job title</span>
             <input type="text" name="jobTitle" class="form__input" />
-          </label>
-          <label
-            class="form__element-label"
+          </div>
+          <div
+            class="form__element"
             data-including-text="We never contact your employer"
           >
-            <span>Work Phone</span>
+            <span class="form__element-title">Work Phone</span>
             <input type="text" name="streetAddress" class="form__input" />
-          </label>
-          <label class="form__element-label">
-            <span>How often are you paid?</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">How often are you paid?</span>
             <select class="form__select" name="paidFrequency">
               <option value="everyTwoWeeks">Every 2 weeks</option>
               <option value="twiceAMonth">Twice a month</option>
               <option value="monthly">Monthly</option>
               <option value="weekly">Weekly</option>
             </select>
-          </label>
-          <label class="form__element-label">
-            <span>How is Your Paycheck Recieved?</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title"
+              >How is Your Paycheck Recieved?</span
+            >
             <select class="form__select" name="paycheckRecieve">
               <option value="electronicDeposit">Electronic Deposit</option>
               <option value="paperCheck">Paper check</option>
             </select>
-          </label>
+          </div>
         </fieldset>
-        <div class="form__footer"></div>
+        <div class="form__footer">
+          <div class="form__footer-block"></div>
+        </div>
       </form>
       <form class="form" id="step-3">
         <fieldset form="step-3">
-          <label class="form__element-label" data-has-example="true">
-            <span>Bank Routing Number</span>
+          <div class="form__element" data-has-example="true">
+            <span class="form__element-title">Bank Routing Number</span>
             <input type="text" name="bankRoutingNumber" class="form__input" />
-          </label>
-          <label class="form__element-label">
-            <span>Bank name</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Bank name</span>
             <input type="text" name="bankName" class="form__input" />
-          </label>
-          <label class="form__element-label">
-            <span>Account type</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Account type</span>
             <select class="form__select" name="accountType">
               <option value="savings">Savings</option>
               <option value="checking">Checking</option>
             </select>
-          </label>
-          <label class="form__element-label">
-            <span>Months at bank</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Months at bank</span>
             <select class="form__select" name="monthAtBank">
               <option value="more-than-2-years">More than 2 years</option>
               <option value="6-12-month">6 – 12 Months</option>
@@ -306,21 +336,23 @@
               <option value="1-3-month">1 – 3 Months</option>
               <option value="less-than-1-month">Less than 1 Month</option>
             </select>
-          </label>
-          <label class="form__element-label" data-has-example="true">
-            <span>Bank Account Number</span>
+          </div>
+          <div class="form__element" data-has-example="true">
+            <span class="form__element-title">Bank Account Number</span>
             <input type="text" name="bankAccountNumber" class="form__input" />
-          </label>
-          <label class="form__element-label">
-            <span>Driver's license or state id</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title"
+              >Driver's license or state id</span
+            >
             <input
               type="text"
               name="stateIdOrDriverLicense"
               class="form__input"
             />
-          </label>
-          <label class="form__element-label">
-            <span>Issuing state</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Issuing state</span>
             <select class="form__select" name="issuingState">
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
@@ -373,9 +405,9 @@
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
             </select>
-          </label>
-          <label class="form__element-label">
-            <span>Credit Store</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Credit Store</span>
             <select class="form__select">
               <option value="720+">Excellent (720 +)</option>
               <option value="680-719">Good (680 – 719)</option>
@@ -383,19 +415,26 @@
               <option value="-639">Poor (639 or less)</option>
               <option value="dont-know">I don't know</option>
             </select>
-          </label>
-          <label class="form__element-label">
-            <span>Social Security Number</span>
+          </div>
+          <div class="form__element">
+            <span class="form__element-title">Social Security Number</span>
             <input type="text" name="SSN" class="form__input" />
-          </label>
+          </div>
           <div class="form__footer"></div>
         </fieldset>
+        <div class="form__footer">
+          <div class="form__footer-block"></div>
+        </div>
       </form>
     </main>
 
-    <template id="#form-footer-block">
+    <template id="form-footer-block">
       <nav class="form__navigation">
-        <button type="button" class="form__button form__prev-button" name="prevButton">
+        <button
+          type="button"
+          class="form__button form__prev-button"
+          name="prevButton"
+        >
           <svg
             width="24"
             height="24"
@@ -413,7 +452,7 @@
             />
           </svg>
         </button>
-        <template id="#form-button">
+        <template id="next-button">
           <button type="button" class="form__button" name="nextButton">
             <span>Next Step</span>
             <svg
@@ -433,6 +472,8 @@
               />
             </svg>
           </button>
+        </template>
+        <template id="request-button">
           <button type="button" class="form__button" name="requestButton">
             <span>Request Cash</span>
             <svg
@@ -542,6 +583,42 @@
         </div>
       </div>
     </template>
+
+    <dialog class="email-dialog email-dialog__is-animated" id="emailDialog">
+      <svg
+        width="56"
+        height="57"
+        viewBox="0 0 56 57"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.5 18.4375C17.5 18.4375 17.6575 14.8281 21.1684 11.9341C23.2531 10.2158 25.7567 9.71813 28 9.6875C30.0486 9.66235 31.8795 10.0091 32.9744 10.5428C34.8458 11.4594 38.5 13.6906 38.5 18.4375C38.5 23.4327 35.3084 25.6967 31.6805 28.1916C28.0525 30.6864 27.125 33.1331 27.125 35.9375"
+          stroke="#0068FC"
+          stroke-width="4.375"
+          stroke-miterlimit="10"
+          stroke-linecap="round"
+        />
+        <path
+          d="M27.125 47.7489C29.058 47.7489 30.625 46.1819 30.625 44.2489C30.625 42.3159 29.058 40.7489 27.125 40.7489C25.192 40.7489 23.625 42.3159 23.625 44.2489C23.625 46.1819 25.192 47.7489 27.125 47.7489Z"
+          fill="#0068FC"
+          stroke="#0068FC"
+          stroke-width="0.0957031"
+        />
+      </svg>
+      <div class="email-dialog__content">
+        <h3>Please double-check your email address is correct</h3>
+        <p class="email"></p>
+      </div>
+      <div class="email-dialog__button-container">
+        <button class="email-dialog__button-confirm">
+          <span class="email__text-button">Confirm</span>
+        </button>
+        <button class="email-dialog__button-edit">
+          <span class="email__text-button">Edit</span>
+        </button>
+      </div>
+    </dialog>
 
     <script src="./scripts/index.js"></script>
   </body>
