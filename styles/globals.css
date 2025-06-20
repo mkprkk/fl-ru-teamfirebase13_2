@@ -16,6 +16,10 @@ svg {
   margin: 0;
 }
 
+body {
+  box-sizing:border-box;
+}
+
 dialog {
   padding: 0;
   border: none;
@@ -112,4 +116,8 @@ select {
 
 fieldset {
   border: none;
+}
+
+ul li {
+  list-style-type: none;
 }

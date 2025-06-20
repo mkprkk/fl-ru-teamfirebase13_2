@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/globals.css" />
     <link rel="stylesheet" href="./assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="./styles/calendar.css" />
     <link rel="stylesheet" href="./styles/index.css" />
     <title>Interactive Form</title>
   </head>
@@ -19,36 +20,36 @@
     <main class="form__container">
       <form class="form">
         <fieldset>
-          <div class="form__element" id="test">
+          <div class="form__element">
             <span class="form__element-title">Loan amount up to</span>
             <ul class="form__select" name="loanAmount">
-              <li class="select__value"></li>
-              <li value="200-500">$200 — $500</li>
-              <li value="500-1000">$500 — $1,000</li>
-              <li value="1000-2500">$1,000 — $2,500</li>
-              <li value="2500-5000">$2,500 — $5,000</li>
+              <li data-value="200-500">$200 — $500</li>
+              <li data-value="500-1000">$500 — $1,000</li>
+              <li data-value="1000-2500">$1,000 — $2,500</li>
+              <li data-value="2500-5000">$2,500 — $5,000</li>
             </ul>
           </div>
-          <div class="form__element lower-amount">
+          <div class="form__element radio form__element--no-hover">
             <span class="form__element-title"
               >Would you also consider a lower amount?</span
             >
-            <span class="lower-amount-radio-container">
-              <label class="lower-amount-radio-element">
+            <span class="radio-container">
+              <label class="radio-element">
                 No
                 <input
                   class="form__radio"
                   type="radio"
-                  value="no"
+                  data-value="no"
                   name="lowerAmount"
+                  checked
                 />
               </label>
-              <label class="lower-amount-radio-element">
+              <label class="radio-element">
                 Yes
                 <input
                   class="form__radio"
                   type="radio"
-                  value="yes"
+                  data-value="yes"
                   name="lowerAmount"
                 />
               </label>
@@ -56,24 +57,24 @@
           </div>
           <div class="form__element">
             <span class="form__element-title">Loan purpose</span>
-            <select class="form__select" name="loanPurpose">
-              <option value="debt-consolidation">Debt consolidation</option>
-              <option value="everyday-bills-emergency">
+            <ul class="form__select" name="loanPurpose">
+              <li data-value="debt-consolidation">Debt consolidation</li>
+              <li data-value="everyday-bills-emergency">
                 Everyday Bills/Emergency
-              </option>
-              <option value="credit-card-consolidation">
+              </li>
+              <li data-value="credit-card-consolidation">
                 Credit card consolidation
-              </option>
-              <option value="auto-purchase">Auto purchase</option>
-              <option value="home-improvement">Home improvement</option>
-              <option value="medical">Medical</option>
-              <option value="business">Business</option>
-              <option value="taxes">Taxes</option>
-              <option value="rent-or-mortgage">Rent or mortgage</option>
-              <option value="other">Other</option>
-            </select>
+              </li>
+              <li data-value="auto-purchase">Auto purchase</li>
+              <li data-value="home-improvement">Home improvement</li>
+              <li data-value="medical">Medical</li>
+              <li data-value="business">Business</li>
+              <li data-value="taxes">Taxes</li>
+              <li data-value="rent-or-mortgage">Rent or mortgage</li>
+              <li data-value="other">Other</li>
+            </ul>
           </div>
-          <div class="form__element email">
+          <div class="form__element email-element form__element--no-hover">
             <span class="form__element-title">Your Email</span>
             <input
               type="email"
@@ -141,93 +142,41 @@
         <fieldset>
           <div class="form__element">
             <span class="form__element-title">State</span>
-            <select class="form__select" name="state">
-              <option value="AL">Alabama</option>
-              <option value="AK">Alaska</option>
-              <option value="AZ">Arizona</option>
-              <option value="AR">Arkansas</option>
-              <option value="CA">California</option>
-              <option value="CO">Colorado</option>
-              <option value="CT">Connecticut</option>
-              <option value="DE">Delaware</option>
-              <option value="FL">Florida</option>
-              <option value="GA">Georgia</option>
-              <option value="HI">Hawaii</option>
-              <option value="ID">Idaho</option>
-              <option value="IL">Illinois</option>
-              <option value="IN">Indiana</option>
-              <option value="IA">Iowa</option>
-              <option value="KS">Kansas</option>
-              <option value="KY">Kentucky</option>
-              <option value="LA">Louisiana</option>
-              <option value="ME">Maine</option>
-              <option value="MD">Maryland</option>
-              <option value="MA">Massachusetts</option>
-              <option value="MI">Michigan</option>
-              <option value="MN">Minnesota</option>
-              <option value="MS">Mississippi</option>
-              <option value="MO">Missouri</option>
-              <option value="MT">Montana</option>
-              <option value="NE">Nebraska</option>
-              <option value="NV">Nevada</option>
-              <option value="NH">New Hampshire</option>
-              <option value="NJ">New Jersey</option>
-              <option value="NM">New Mexico</option>
-              <option value="NY">New York</option>
-              <option value="NC">North Carolina</option>
-              <option value="ND">North Dakota</option>
-              <option value="OH">Ohio</option>
-              <option value="OK">Oklahoma</option>
-              <option value="OR">Oregon</option>
-              <option value="PA">Pennsylvania</option>
-              <option value="RI">Rhode Island</option>
-              <option value="SC">South Carolina</option>
-              <option value="SD">South Dakota</option>
-              <option value="TN">Tennessee</option>
-              <option value="TX">Texas</option>
-              <option value="UT">Utah</option>
-              <option value="VT">Vermont</option>
-              <option value="VA">Virginia</option>
-              <option value="WA">Washington</option>
-              <option value="WV">West Virginia</option>
-              <option value="WI">Wisconsin</option>
-              <option value="WY">Wyoming</option>
-            </select>
+            <ul class="form__select" name="state"></ul>
           </div>
           <div class="form__element">
             <span class="form__element-title">City</span>
-            <select class="form__select">
-              <!-- Надо будет искать в интернете -->
-            </select>
+            <ul class="form__select" name="cities"></ul>
           </div>
           <div class="form__element">
             <span class="form__element-title">Time of residence</span>
-            <select class="form__select" name="timeOfResidence">
-              <option value="10+_years">10+ Years</option>
-              <option value="over-5-years">Over 5 Years</option>
-              <option value="2-to-5-years">2 to 5 Years</option>
-              <option value="1-to-2 years">1 to 2 Years</option>
-              <option value="less-than-a-year">Less Than A Year</option>
-            </select>
+            <ul class="form__select" name="timeOfResidence">
+              <li data-value="10+_years">10+ Years</li>
+              <li data-value="over-5-years">Over 5 Years</li>
+              <li data-value="2-to-5-years">2 to 5 Years</li>
+              <li data-value="1-to-2 years">1 to 2 Years</li>
+              <li data-value="less-than-a-year">Less Than A Year</li>
+            </ul>
           </div>
-          <div class="form__element own-or-rent">
+          <div class="form__element radio form__element--no-hover">
             <span class="form__element-title">Do You own or Rent?</span>
-            <span class="own-or-rent-radio-container">
-              <label class="own-or-rent-radio-element">
+            <span class="radio-container">
+              <label class="radio-element">
                 <input
                   type="radio"
-                  value="rent"
+                  data-value="rent"
                   name="OwnOrRent"
                   class="form__radio"
                 />
                 Rent
               </label>
-              <label class="own-or-rent-radio-element">
+              <label class="radio-element">
                 <input
                   type="radio"
-                  value="own"
+                  data-value="own"
                   name="OwnOrRent"
                   class="form__radio"
+                  checked
                 />
                 Own
               </label>
@@ -237,40 +186,99 @@
             <span class="form__element-title"
               >What is Your Source of Income?</span
             >
-            <select class="form__select" name="sourceOfIncome">
-              <option value="job-income">Job income</option>
-              <option value="self-employement">Self employement</option>
-              <option value="benefits">Benefits</option>
-              <option value="military-pay">Military Pay</option>
-            </select>
+            <ul class="form__select" name="sourceOfIncome">
+              <li data-value="job-income">Job income</li>
+              <li data-value="self-employement">Self employement</li>
+              <li data-value="benefits">Benefits</li>
+              <li data-value="military-pay">Military Pay</li>
+            </ul>
           </div>
           <div class="form__element">
             <span class="form__element-title">Time employed</span>
-            <select class="form__select" name="time-employed">
-              <option value="5-years-or-more">5 Years or more</option>
-              <option value="3-4--years">3 – 4 Years</option>
-              <option value="1-2--years">1 – 2 Years</option>
-              <option value="12-month">3 – 12 Months</option>
-              <option value="3-month-or-less">3 Months or less</option>
-            </select>
+            <ul class="form__select" name="time-employed">
+              <li data-value="5-years-or-more">5 Years or more</li>
+              <li data-value="3-4--years">3 – 4 Years</li>
+              <li data-value="1-2--years">1 – 2 Years</li>
+              <li data-value="12-month">3 – 12 Months</li>
+              <li data-value="3-month-or-less">3 Months or less</li>
+            </ul>
           </div>
           <div class="form__element" data-including-text="Before taxes">
             <span class="form__element-title">Monthly Gross Income</span>
-            <select class="form__select" name="monthly-gross-income">
-              <option value="10000">More than $8,500</option>
-              <option value="8500">$7,001 — $8,500</option>
-              <option value="7000">$5,501 — $7,000</option>
-              <option value="5500">$4,501 — $5,500</option>
-              <option value="4500">$3,501 — $4,500</option>
-              <option value="3500">$2,501 — $3,500</option>
-              <option value="2500">$1,501 — $2,500</option>
-              <option value="1500">Less than $1,500</option>
-            </select>
+            <ul class="form__select" name="monthly-gross-income">
+              <li data-value="10000">More than $8,500</li>
+              <li data-value="8500">$7,001 — $8,500</li>
+              <li data-value="7000">$5,501 — $7,000</li>
+              <li data-value="5500">$4,501 — $5,500</li>
+              <li data-value="4500">$3,501 — $4,500</li>
+              <li data-value="3500">$2,501 — $3,500</li>
+              <li data-value="2500">$1,501 — $2,500</li>
+              <li data-value="1500">Less than $1,500</li>
+            </ul>
           </div>
           <!-- Нужно придумать как уложить иконки -->
-          <div class="form__element next-daypate">
+          <div class="form__element next-paydate">
             <span class="form__element-title">Next paydate</span>
             <input type="text" name="nextPaydate" class="form__input" />
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="calendar-icon-svg"
+            >
+              <path
+                d="M15 3.99995C15 3.46952 14.7893 2.96081 14.4142 2.58574C14.0391 2.21067 13.5304 1.99995 13 1.99995H12.5V1.51402C12.5 1.24495 12.2931 1.01402 12.0241 1.00058C11.9565 0.997322 11.8889 1.00782 11.8255 1.03145C11.762 1.05508 11.7041 1.09133 11.6551 1.13802C11.6061 1.18471 11.5671 1.24087 11.5404 1.30308C11.5138 1.36529 11.5 1.43227 11.5 1.49995V1.99995H4.5V1.51402C4.5 1.24495 4.29313 1.01402 4.02406 1.00058C3.95646 0.997322 3.8889 1.00782 3.82547 1.03145C3.76204 1.05508 3.70407 1.09133 3.65508 1.13802C3.60608 1.18471 3.56707 1.24087 3.54041 1.30308C3.51375 1.36529 3.50001 1.43227 3.5 1.49995V1.99995H3C2.46957 1.99995 1.96086 2.21067 1.58579 2.58574C1.21071 2.96081 1 3.46952 1 3.99995V4.37495C1 4.40811 1.01317 4.4399 1.03661 4.46334C1.06005 4.48678 1.09185 4.49995 1.125 4.49995H14.875C14.9082 4.49995 14.9399 4.48678 14.9634 4.46334C14.9868 4.4399 15 4.40811 15 4.37495V3.99995ZM1 13C1 13.5304 1.21071 14.0391 1.58579 14.4142C1.96086 14.7892 2.46957 15 3 15H13C13.5304 15 14.0391 14.7892 14.4142 14.4142C14.7893 14.0391 15 13.5304 15 13V5.5937C15 5.56884 14.9901 5.54499 14.9725 5.52741C14.955 5.50983 14.9311 5.49995 14.9062 5.49995H1.09375C1.06889 5.49995 1.04504 5.50983 1.02746 5.52741C1.00988 5.54499 1 5.56884 1 5.5937V13ZM11.75 6.49995C11.8983 6.49995 12.0433 6.54394 12.1667 6.62635C12.29 6.70876 12.3861 6.8259 12.4429 6.96294C12.4997 7.09999 12.5145 7.25079 12.4856 7.39627C12.4566 7.54176 12.3852 7.6754 12.2803 7.78028C12.1754 7.88517 12.0418 7.9566 11.8963 7.98554C11.7508 8.01448 11.6 7.99963 11.463 7.94286C11.3259 7.8861 11.2088 7.78997 11.1264 7.66663C11.044 7.54329 11 7.39829 11 7.24995C11 7.05104 11.079 6.86028 11.2197 6.71962C11.3603 6.57897 11.5511 6.49995 11.75 6.49995ZM11.75 8.99995C11.8983 8.99995 12.0433 9.04394 12.1667 9.12635C12.29 9.20876 12.3861 9.3259 12.4429 9.46294C12.4997 9.59999 12.5145 9.75079 12.4856 9.89627C12.4566 10.0418 12.3852 10.1754 12.2803 10.2803C12.1754 10.3852 12.0418 10.4566 11.8963 10.4855C11.7508 10.5145 11.6 10.4996 11.463 10.4429C11.3259 10.3861 11.2088 10.29 11.1264 10.1666C11.044 10.0433 11 9.89829 11 9.74995C11 9.55104 11.079 9.36028 11.2197 9.21962C11.3603 9.07897 11.5511 8.99995 11.75 8.99995ZM9.25 6.49995C9.39834 6.49995 9.54334 6.54394 9.66668 6.62635C9.79001 6.70876 9.88614 6.8259 9.94291 6.96294C9.99967 7.09999 10.0145 7.25079 9.98559 7.39627C9.95665 7.54176 9.88522 7.6754 9.78033 7.78028C9.67544 7.88517 9.5418 7.9566 9.39632 7.98554C9.25083 8.01448 9.10003 7.99963 8.96299 7.94286C8.82594 7.8861 8.70881 7.78997 8.6264 7.66663C8.54399 7.54329 8.5 7.39829 8.5 7.24995C8.5 7.05104 8.57902 6.86028 8.71967 6.71962C8.86032 6.57897 9.05109 6.49995 9.25 6.49995ZM9.25 8.99995C9.39834 8.99995 9.54334 9.04394 9.66668 9.12635C9.79001 9.20876 9.88614 9.3259 9.94291 9.46294C9.99967 9.59999 10.0145 9.75079 9.98559 9.89627C9.95665 10.0418 9.88522 10.1754 9.78033 10.2803C9.67544 10.3852 9.5418 10.4566 9.39632 10.4855C9.25083 10.5145 9.10003 10.4996 8.96299 10.4429C8.82594 10.3861 8.70881 10.29 8.6264 10.1666C8.54399 10.0433 8.5 9.89829 8.5 9.74995C8.5 9.55104 8.57902 9.36028 8.71967 9.21962C8.86032 9.07897 9.05109 8.99995 9.25 8.99995ZM9.25 11.5C9.39834 11.5 9.54334 11.5439 9.66668 11.6264C9.79001 11.7088 9.88614 11.8259 9.94291 11.9629C9.99967 12.1 10.0145 12.2508 9.98559 12.3963C9.95665 12.5418 9.88522 12.6754 9.78033 12.7803C9.67544 12.8852 9.5418 12.9566 9.39632 12.9855C9.25083 13.0145 9.10003 12.9996 8.96299 12.9429C8.82594 12.8861 8.70881 12.79 8.6264 12.6666C8.54399 12.5433 8.5 12.3983 8.5 12.25C8.5 12.051 8.57902 11.8603 8.71967 11.7196C8.86032 11.579 9.05109 11.5 9.25 11.5ZM6.75 8.99995C6.89834 8.99995 7.04334 9.04394 7.16668 9.12635C7.29001 9.20876 7.38614 9.3259 7.44291 9.46294C7.49968 9.59999 7.51453 9.75079 7.48559 9.89627C7.45665 10.0418 7.38522 10.1754 7.28033 10.2803C7.17544 10.3852 7.0418 10.4566 6.89632 10.4855C6.75083 10.5145 6.60003 10.4996 6.46299 10.4429C6.32594 10.3861 6.20881 10.29 6.1264 10.1666C6.04399 10.0433 6 9.89829 6 9.74995C6 9.55104 6.07902 9.36028 6.21967 9.21962C6.36032 9.07897 6.55109 8.99995 6.75 8.99995ZM6.75 11.5C6.89834 11.5 7.04334 11.5439 7.16668 11.6264C7.29001 11.7088 7.38614 11.8259 7.44291 11.9629C7.49968 12.1 7.51453 12.2508 7.48559 12.3963C7.45665 12.5418 7.38522 12.6754 7.28033 12.7803C7.17544 12.8852 7.0418 12.9566 6.89632 12.9855C6.75083 13.0145 6.60003 12.9996 6.46299 12.9429C6.32594 12.8861 6.20881 12.79 6.1264 12.6666C6.04399 12.5433 6 12.3983 6 12.25C6 12.051 6.07902 11.8603 6.21967 11.7196C6.36032 11.579 6.55109 11.5 6.75 11.5ZM4.25 8.99995C4.39834 8.99995 4.54334 9.04394 4.66668 9.12635C4.79001 9.20876 4.88614 9.3259 4.94291 9.46294C4.99968 9.59999 5.01453 9.75079 4.98559 9.89627C4.95665 10.0418 4.88522 10.1754 4.78033 10.2803C4.67544 10.3852 4.5418 10.4566 4.39632 10.4855C4.25083 10.5145 4.10003 10.4996 3.96299 10.4429C3.82594 10.3861 3.70881 10.29 3.6264 10.1666C3.54399 10.0433 3.5 9.89829 3.5 9.74995C3.5 9.55104 3.57902 9.36028 3.71967 9.21962C3.86032 9.07897 4.05109 8.99995 4.25 8.99995ZM4.25 11.5C4.39834 11.5 4.54334 11.5439 4.66668 11.6264C4.79001 11.7088 4.88614 11.8259 4.94291 11.9629C4.99968 12.1 5.01453 12.2508 4.98559 12.3963C4.95665 12.5418 4.88522 12.6754 4.78033 12.7803C4.67544 12.8852 4.5418 12.9566 4.39632 12.9855C4.25083 13.0145 4.10003 12.9996 3.96299 12.9429C3.82594 12.8861 3.70881 12.79 3.6264 12.6666C3.54399 12.5433 3.5 12.3983 3.5 12.25C3.5 12.051 3.57902 11.8603 3.71967 11.7196C3.86032 11.579 4.05109 11.5 4.25 11.5Z"
+                fill="#767681"
+                class="calendar-icon"
+              />
+            </svg>
+            <div class="calendar hidden-calendar">
+              <div class="calendar-header">
+                <button type="button" onclick="prevMonth()">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="calendar-arrow flipped-arrow"
+                  >
+                    <path
+                      d="M7.5 15L12.5 10L7.5 5"
+                      stroke="#0068FC"
+                      stroke-width="2.29167"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="calendar-stroke"
+                    />
+                  </svg>
+                </button>
+                <span id="month-year"></span>
+                <button type="button" onclick="nextMonth()">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="calendar-arrow"
+                  >
+                    <path
+                      d="M7.5 15L12.5 10L7.5 5"
+                      stroke="#0068FC"
+                      stroke-width="2.29167"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="calendar-stroke"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="calendar-grid" id="calendar-grid"></div>
+              <input type="hidden" name="paydayDate" id="paydayDate" />
+            </div>
           </div>
           <div class="form__element">
             <span class="form__element-title">Employer name</span>
@@ -289,21 +297,21 @@
           </div>
           <div class="form__element">
             <span class="form__element-title">How often are you paid?</span>
-            <select class="form__select" name="paidFrequency">
-              <option value="everyTwoWeeks">Every 2 weeks</option>
-              <option value="twiceAMonth">Twice a month</option>
-              <option value="monthly">Monthly</option>
-              <option value="weekly">Weekly</option>
-            </select>
+            <ul class="form__select" name="paidFrequency">
+              <li data-value="everyTwoWeeks">Every 2 weeks</li>
+              <li data-value="twiceAMonth">Twice a month</li>
+              <li data-value="monthly">Monthly</li>
+              <li data-value="weekly">Weekly</li>
+            </ul>
           </div>
           <div class="form__element">
             <span class="form__element-title"
               >How is Your Paycheck Recieved?</span
             >
-            <select class="form__select" name="paycheckRecieve">
-              <option value="electronicDeposit">Electronic Deposit</option>
-              <option value="paperCheck">Paper check</option>
-            </select>
+            <ul class="form__select" name="paycheckRecieve">
+              <li data-value="electronicDeposit">Electronic Deposit</li>
+              <li data-value="paperCheck">Paper check</li>
+            </ul>
           </div>
         </fieldset>
         <div class="form__footer">
@@ -322,20 +330,20 @@
           </div>
           <div class="form__element">
             <span class="form__element-title">Account type</span>
-            <select class="form__select" name="accountType">
-              <option value="savings">Savings</option>
-              <option value="checking">Checking</option>
-            </select>
+            <ul class="form__select" name="accountType">
+              <li data-value="savings">Savings</li>
+              <li data-value="checking">Checking</li>
+            </ul>
           </div>
           <div class="form__element">
             <span class="form__element-title">Months at bank</span>
-            <select class="form__select" name="monthAtBank">
-              <option value="more-than-2-years">More than 2 years</option>
-              <option value="6-12-month">6 – 12 Months</option>
-              <option value="3-6-month">3 – 6 Months</option>
-              <option value="1-3-month">1 – 3 Months</option>
-              <option value="less-than-1-month">Less than 1 Month</option>
-            </select>
+            <ul class="form__select" name="monthAtBank">
+              <li data-value="more-than-2-years">More than 2 years</li>
+              <li data-value="6-12-month">6 – 12 Months</li>
+              <li data-value="3-6-month">3 – 6 Months</li>
+              <li data-value="1-3-month">1 – 3 Months</li>
+              <li data-value="less-than-1-month">Less than 1 Month</li>
+            </ul>
           </div>
           <div class="form__element" data-has-example="true">
             <span class="form__element-title">Bank Account Number</span>
@@ -353,68 +361,17 @@
           </div>
           <div class="form__element">
             <span class="form__element-title">Issuing state</span>
-            <select class="form__select" name="issuingState">
-              <option value="AL">Alabama</option>
-              <option value="AK">Alaska</option>
-              <option value="AZ">Arizona</option>
-              <option value="AR">Arkansas</option>
-              <option value="CA">California</option>
-              <option value="CO">Colorado</option>
-              <option value="CT">Connecticut</option>
-              <option value="DE">Delaware</option>
-              <option value="FL">Florida</option>
-              <option value="GA">Georgia</option>
-              <option value="HI">Hawaii</option>
-              <option value="ID">Idaho</option>
-              <option value="IL">Illinois</option>
-              <option value="IN">Indiana</option>
-              <option value="IA">Iowa</option>
-              <option value="KS">Kansas</option>
-              <option value="KY">Kentucky</option>
-              <option value="LA">Louisiana</option>
-              <option value="ME">Maine</option>
-              <option value="MD">Maryland</option>
-              <option value="MA">Massachusetts</option>
-              <option value="MI">Michigan</option>
-              <option value="MN">Minnesota</option>
-              <option value="MS">Mississippi</option>
-              <option value="MO">Missouri</option>
-              <option value="MT">Montana</option>
-              <option value="NE">Nebraska</option>
-              <option value="NV">Nevada</option>
-              <option value="NH">New Hampshire</option>
-              <option value="NJ">New Jersey</option>
-              <option value="NM">New Mexico</option>
-              <option value="NY">New York</option>
-              <option value="NC">North Carolina</option>
-              <option value="ND">North Dakota</option>
-              <option value="OH">Ohio</option>
-              <option value="OK">Oklahoma</option>
-              <option value="OR">Oregon</option>
-              <option value="PA">Pennsylvania</option>
-              <option value="RI">Rhode Island</option>
-              <option value="SC">South Carolina</option>
-              <option value="SD">South Dakota</option>
-              <option value="TN">Tennessee</option>
-              <option value="TX">Texas</option>
-              <option value="UT">Utah</option>
-              <option value="VT">Vermont</option>
-              <option value="VA">Virginia</option>
-              <option value="WA">Washington</option>
-              <option value="WV">West Virginia</option>
-              <option value="WI">Wisconsin</option>
-              <option value="WY">Wyoming</option>
-            </select>
+            <ul class="form__select" name="issuingState"></ul>
           </div>
           <div class="form__element">
             <span class="form__element-title">Credit Store</span>
-            <select class="form__select">
-              <option value="720+">Excellent (720 +)</option>
-              <option value="680-719">Good (680 – 719)</option>
-              <option value="640-679">Fair (640 – 679)</option>
-              <option value="-639">Poor (639 or less)</option>
-              <option value="dont-know">I don't know</option>
-            </select>
+            <ul class="form__select">
+              <li data-value="720+">Excellent (720 +)</li>
+              <li data-value="680-719">Good (680 – 719)</li>
+              <li data-value="640-679">Fair (640 – 679)</li>
+              <li data-value="-639">Poor (639 or less)</li>
+              <li data-value="dont-know">I don't know</li>
+            </ul>
           </div>
           <div class="form__element">
             <span class="form__element-title">Social Security Number</span>
@@ -489,7 +446,7 @@
                 stroke-width="1.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                nav-icon
+                class="nav-icon"
               />
             </svg>
           </button>
@@ -584,33 +541,59 @@
       </div>
     </template>
 
-    <dialog class="email-dialog email-dialog__is-animated" id="emailDialog">
-      <svg
-        width="56"
-        height="57"
-        viewBox="0 0 56 57"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M17.5 18.4375C17.5 18.4375 17.6575 14.8281 21.1684 11.9341C23.2531 10.2158 25.7567 9.71813 28 9.6875C30.0486 9.66235 31.8795 10.0091 32.9744 10.5428C34.8458 11.4594 38.5 13.6906 38.5 18.4375C38.5 23.4327 35.3084 25.6967 31.6805 28.1916C28.0525 30.6864 27.125 33.1331 27.125 35.9375"
-          stroke="#0068FC"
-          stroke-width="4.375"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-        />
-        <path
-          d="M27.125 47.7489C29.058 47.7489 30.625 46.1819 30.625 44.2489C30.625 42.3159 29.058 40.7489 27.125 40.7489C25.192 40.7489 23.625 42.3159 23.625 44.2489C23.625 46.1819 25.192 47.7489 27.125 47.7489Z"
-          fill="#0068FC"
-          stroke="#0068FC"
-          stroke-width="0.0957031"
-        />
-      </svg>
+    <template id="including-text">
+      <div class="including-text"></div>
+    </template>
+
+    <template id="show-example">
+      <div class="show-example">
+        <p>Show example</p>
+        <svg
+          width="16"
+          height="17"
+          viewBox="0 0 16 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.5 6.25L8 10.75L12.5 6.25"
+            stroke="#767681"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="example-arrow"
+          />
+        </svg>
+      </div>
+    </template>
+
+    <dialog class="email-dialog" id="emailDialog">
       <div class="email-dialog__content">
-        <h3>Please double-check your email address is correct</h3>
+        <svg
+          width="56"
+          height="57"
+          viewBox="0 0 56 57"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17.5 18.4375C17.5 18.4375 17.6575 14.8281 21.1684 11.9341C23.2531 10.2158 25.7567 9.71813 28 9.6875C30.0486 9.66235 31.8795 10.0091 32.9744 10.5428C34.8458 11.4594 38.5 13.6906 38.5 18.4375C38.5 23.4327 35.3084 25.6967 31.6805 28.1916C28.0525 30.6864 27.125 33.1331 27.125 35.9375"
+            stroke="#0068FC"
+            stroke-width="4.375"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+          />
+          <path
+            d="M27.125 47.7489C29.058 47.7489 30.625 46.1819 30.625 44.2489C30.625 42.3159 29.058 40.7489 27.125 40.7489C25.192 40.7489 23.625 42.3159 23.625 44.2489C23.625 46.1819 25.192 47.7489 27.125 47.7489Z"
+            fill="#0068FC"
+            stroke="#0068FC"
+            stroke-width="0.0957031"
+          />
+        </svg>
+        <h2>Please double-check your email address is correct</h2>
         <p class="email"></p>
       </div>
-      <div class="email-dialog__button-container">
+      <div class="email-dialog__button-container align-center flex">
         <button class="email-dialog__button-confirm">
           <span class="email__text-button">Confirm</span>
         </button>
@@ -620,6 +603,11 @@
       </div>
     </dialog>
 
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/navigation.js"></script>
+    <script src="./scripts/modal.js"></script>
+    <script src="./scripts/input.js"></script>
+    <script src="./scripts/calendar.js"></script>
+    <script src="./scripts/states.js"></script>
+    <script src="./scripts/init.js"></script>
   </body>
 </html>

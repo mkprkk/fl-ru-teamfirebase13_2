@@ -1,6 +1,41 @@
+@keyframes checked {
+  0% {
+    opacity: 0;
+    scale: 0.9;
+  }
+  80% {
+    opacity: 0.8;
+    scale: 1.1;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+/* --- Layout и утилиты --- */
+.flex {
+  display: flex;
+}
+.column {
+  flex-direction: column;
+}
+.align-center {
+  align-items: center;
+}
+.margin-top {
+  margin-top: 15px;
+}
+.padding-block {
+  padding-block: 15px 19px;
+}
+.width100 {
+  width: 100%;
+}
+
 /* Общие селекторы */
 body {
-  width: 384px;
+  width: 375px;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -84,11 +119,27 @@ header h2 {
   display: flex;
   place-content: center;
   gap: 6px;
+  transition: opacity 0.3s, filter 0.3s, scale 0.3s, color 0.3s;
+  cursor: pointer;
+}
+.form__button:hover {
+  color: black;
+  filter: brightness(1.3);
+  scale: 1.02;
+}
+.form__button:active {
+  filter: brightness(0.9);
+  scale: 0.98;
 }
 .form__button .form__prev-button {
 }
+.button-disbaled {
+  opacity: 0.8;
+  pointer-events: none;
+}
 .form__container {
   position: relative;
+  /* overflow: hidden; */
 }
 .form__disclaimer {
   color: #767681;
@@ -103,6 +154,22 @@ header h2 {
   border-radius: 10px;
   position: relative;
   padding: 26.5px 16px 26.5px 16px;
+  cursor: pointer;
+  transition: filter 0.2s, background-color 0.2s;
+}
+.element-active {
+  background-color: #f1e1fb80;
+}
+.element-active::before {
+  content: "";
+  background-image: url("../assets/images/sucuss.svg");
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-repeat: no-repeat;
+  left: 89.5%;
+  bottom: 10%;
+  animation: checked 5s ease-in-out;
 }
 .form__element:has(.form__select)::after {
   content: "";
@@ -116,24 +183,32 @@ header h2 {
   transform: rotate(var(--rotate));
   transition: transform 0.2s;
 }
-.email {
+.email-element {
   background-color: white;
   border: 1px black solid;
   padding: 10.5px 16px 10.5px 16px;
   gap: 5px;
+  cursor: initial;
 }
-.email .form__input {
+.email-element .form__input {
   position: initial;
   visibility: initial;
+  opacity: 1;
 }
-.email .form__element-title {
-  padding: initial;
+.email-element .form__element-title {
+}
+.form__element:hover .form__element-title {
+  color: #ca7515;
+}
+.form__element--no-hover:hover .form__element-title {
+  color: initial;
 }
 .form__element-title {
   font-size: 15px;
   font-weight: 600;
-  transition: transform 0.2s;
+  transition: transform 0.2s, color 0.2s;
 }
+
 .form__footer {
   margin-top: 24px;
 }
@@ -154,8 +229,6 @@ header h2 {
   display: grid;
   grid-template-columns: 64px 1fr;
   gap: 8px;
-}
-.form__radio {
 }
 .form__safety-bot {
   font-weight: 400;
@@ -189,7 +262,20 @@ header h2 {
   border: 1px solid rgba(168, 168, 168, 0.521);
   border-radius: 7px;
   z-index: 1;
-  overflow: hidden;
+  overflow: scroll;
+  padding: 0;
+  max-height: 210px;
+}
+.select-open::-webkit-scrollbar {
+  width: 10px;
+  height: 0;
+}
+.select-open::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 5px;
+}
+.select-open::-webkit-scrollbar-track {
+  background-color: rgba(128, 128, 128, 0.096);
 }
 .select-open li:hover {
   background-color: #ca7515;
@@ -210,57 +296,196 @@ header h2 {
   scale: 0;
   transition: opacity 0.2s;
 }
+.unactive {
+  pointer-events: none;
+  filter: brightness(0.8);
+}
 /* Специфичные селекторы */
-.lower-amount {
+.radio {
   background-color: white;
   border: 1px solid black;
   padding: 17px;
   display: flex;
   gap: 16px;
+  cursor: initial;
 }
-.lower-amount .form__element-title {
+.radio .form__element-title {
   text-align: center;
   padding-inline: 20px;
   padding-block: 0;
 }
-.lower-amount-radio-container {
+.form__radio {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+.radio-container {
   display: flex;
   border: 2px solid #e7f6e8;
   border-radius: 8px;
-  background-color: rgb(202, 202, 202);
   gap: 1px;
   overflow: hidden;
 }
-.lower-amount-radio-element {
+.radio-element {
   font-weight: 400;
   display: flex;
   width: 50%;
   text-align: center;
   font-size: 15px;
   padding: 9px 0 9px 16px;
+  background-color: #f1e1fb80;
+  position: relative;
+  transition: background-color 0.2s;
+}
+.radio-element:has(.form__radio:checked) {
   background-color: white;
 }
-.next-daypate {
+.radio-element::after {
+  content: "";
+  background-image: url("../assets/images/sucuss.svg");
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-repeat: no-repeat;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.2s;
+}
+.radio-element:has(.form__radio:checked)::after {
+  animation: checked 0.2s ease-in-out;
+}
+.radio-element:not(:has(.form__radio:checked))::after {
+  opacity: 0;
+}
+.radio-disabled {
+}
+.next-paydate {
+}
+.next-paydate svg {
+  position: absolute;
+  right: 11%;
+  bottom: 13%;
+
 }
 .own-or-rent {
 }
+.including-text {
+  font-size: 13px;
+  color: #767681;
+  padding-left: 16px;
+  margin-block: -10px -5px;
+}
+.show-example {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  column-gap: 3px;
+  margin-block: -10px -5px;
+  padding-left: 16px;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+.show-example:hover {
+  filter: brightness(1.4);
+}
+.show-example p {
+  color: #0068fc;
+}
+.show-example svg {
+  margin-top: 3.5px;
+}
+.example-arrow {
+  stroke: #0068fc;
+}
 /* Иконки */
 .nav-icon {
+  transition: stroke 0.3s;
+}
+.form__button:hover .nav-icon {
+  stroke: black;
 }
 .safety-icon {
 }
-/* Модалка */
-.email__text-button {
+/* --- Модальное окно --- */
+.email {
+  font-size: 15px;
+  color: #3b3b43;
 }
+
 .email-dialog {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  background-color: white;
+  opacity: 0;
+  border-radius: 15px;
+  transition: opacity 0.5s 0.1s;
+  overflow: hidden;
+  visibility: hidden;
 }
-.email-dialog__is-animated {
+
+.email-dialog[open] {
+  visibility: visible;
+  opacity: 1;
 }
-.email-dialog__button-confirm {
+
+.email-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 5s;
 }
-.email-dialog__button-container {
+
+body:has(.email-dialog[open]) {
+  overflow: hidden;
 }
-.email-dialog__button-edit {
-}
+
 .email-dialog__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 38.5px 24px 38.5px;
+}
+
+.email-dialog__content h2 {
+  text-align: center;
+  font-size: 19px;
+  margin-bottom: 7px;
+}
+
+.email-dialog__content svg {
+  margin-bottom: 11px;
+}
+
+.email {
+  font-size: 15px;
+  color: #3b3b43;
+}
+
+.email-dialog__button-container button {
+  font-size: 15px;
+  width: 160px;
+  padding-block: 13px;
+  place-content: center;
+  color: white;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.email-dialog__button-container button:hover {
+  filter: brightness(1.2);
+}
+
+.email-dialog__button-container button:active {
+  filter: brightness(0.95);
+}
+
+.email-dialog__button-confirm {
+  background-color: #FFB662;
+}
+
+.email-dialog__button-edit {
+  background-color: #CA7515;
 }
