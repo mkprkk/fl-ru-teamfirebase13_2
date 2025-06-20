@@ -1,6 +1,31 @@
-function nextStep(forms, evt) {
-  const moveForward = () => {
+const prevButton = document.getElementById("prevButton");
+const nextButton = document.getElementById("nextButton");
+
+document.querySelector(".form__prev-button").classList.add("button-disbaled");
+
+let currentStepIdx = 0;
+
+document.addEventListener("click", (evt) => {
+  const nextButton = evt.target.closest("#nextButton");
+  const prevButton = evt.target.closest("#prevButton");
+  evt.preventDefault();
+
+  if (nextButton) {
+    nextStep(forms, evt);
+  } else if (prevButton) {
+    prevStep(forms);
+  }
+});
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Enter") {
     evt.preventDefault();
+    nextStep(forms, evt);
+  }
+});
+
+function nextStep(forms) {
+  const moveForward = () => {
     forms[currentStepIdx].classList.add("hidden");
     currentStepIdx += 1;
     forms[currentStepIdx].classList.remove("hidden");
@@ -16,7 +41,7 @@ function nextStep(forms, evt) {
 }
 
 function prevStep(forms) {
-  const moveBackward = () => {
+  const backBackward = () => {
     forms[currentStepIdx].scrollIntoView({
       behavior: "smooth",
       block: "start",
@@ -27,5 +52,5 @@ function prevStep(forms) {
   };
 
   if (currentStepIdx === 0) return;
-  moveBackward();
+  backBackward();
 }

@@ -58,7 +58,6 @@
   text-transform: uppercase;
 }
 .calendar-day.disabled {
-  /* background: #eee; */
   color: #aaa;
 }
 

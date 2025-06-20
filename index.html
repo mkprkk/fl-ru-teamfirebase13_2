@@ -320,7 +320,7 @@
       </form>
       <form class="form">
         <fieldset>
-          <div class="form__element" data-has-example="true">
+          <div class="form__element" data-has-example="true" data-example-url="./assets/images/example.svg">
             <span class="form__element-title">Bank Routing Number</span>
             <input type="text" name="bankRoutingNumber" class="form__input" />
           </div>
@@ -345,7 +345,7 @@
               <li data-value="less-than-1-month">Less than 1 Month</li>
             </ul>
           </div>
-          <div class="form__element" data-has-example="true">
+          <div class="form__element" data-has-example="true" data-example-url="./assets/images/example.svg">
             <span class="form__element-title">Bank Account Number</span>
             <input type="text" name="bankAccountNumber" class="form__input" />
           </div>
@@ -547,13 +547,14 @@
 
     <template id="show-example">
       <div class="show-example">
-        <p>Show example</p>
+        <p class="example-text">Show example</p>
         <svg
           width="16"
           height="17"
           viewBox="0 0 16 17"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="example-arrow"
         >
           <path
             d="M3.5 6.25L8 10.75L12.5 6.25"
@@ -603,11 +604,12 @@
       </div>
     </dialog>
 
-    <script src="./scripts/navigation.js"></script>
-    <script src="./scripts/modal.js"></script>
-    <script src="./scripts/input.js"></script>
-    <script src="./scripts/calendar.js"></script>
-    <script src="./scripts/states.js"></script>
     <script src="./scripts/init.js"></script>
+    <script src="./scripts/navigation.js"></script>
+    <script src="./scripts/states.js"></script>
+    <script src="./scripts/input.js"></script>
+    <script src="./scripts/modal.js"></script>
+    <script src="./scripts/calendar.js"></script>
+    <script src="./scripts/examples.js"></script>
   </body>
 </html>

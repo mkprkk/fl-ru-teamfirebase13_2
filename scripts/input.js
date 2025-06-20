@@ -2,6 +2,12 @@ const citiesInput = document.querySelector('[name="cities"]');
 const citiesElement = citiesInput.closest(".form__element");
 citiesElement.classList.add("unactive");
 
+const openFieldHandler = (evt) => {
+  const formElement = evt.target.closest(".form__element");
+  if (formElement) openField(formElement, evt);
+};
+document.addEventListener("click", openFieldHandler);
+
 function closeSelectInput(input, value, element) {
   input.scrollTop = 0;
   input.classList.remove("select-open");
@@ -49,12 +55,10 @@ function openField(element) {
     element.querySelector(".form__select") ||
     element.querySelector(".form__select.selected");
 
-  input.style.visibility = "visible";
-  input.style.display = "initial";
-  input.style.opacity = "1";
-  title.style.transform = "translateY(-90%)";
+  input.classList.add("input-opened");
+  title.classList.add("title-opened");
+  element.classList.add("element-opened");
   element.style.setProperty("--rotate", "180deg");
-  element.style.cursor = "default";
 
   if (input.classList.contains("form__input")) {
     input.focus();
