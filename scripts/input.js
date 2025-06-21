@@ -1,4 +1,4 @@
-const citiesInput = document.querySelector('[name="cities"]');
+const citiesInput = document.querySelector('[data-name="cities"]');
 const citiesElement = citiesInput.closest(".form__element");
 citiesElement.classList.add("unactive");
 
@@ -29,7 +29,7 @@ function setCitiesByState() {
   );
   citiesListItems.forEach((li) => li.remove());
   const stateValue = document
-    .querySelector('[name="state"]')
+    .querySelector('[data-name="state"]')
     .querySelector(".select__value").dataset.value;
   const currentCities = states[stateValue];
   currentCities.forEach((city) => {
@@ -59,7 +59,7 @@ function selectElementHandleClick(input, value, evt, element) {
 
   checkFormValidity(formElement);
 
-  if (evt.currentTarget === document.querySelector('[name="state"]')) {
+  if (evt.currentTarget === document.querySelector('[data-name="state"]')) {
     setCitiesByState();
   }
 }
@@ -101,8 +101,8 @@ function openField(element) {
       }
     });
     if (
-      element.querySelector('[name="state"]') ||
-      element.querySelector('[name="issuingState"]')
+      element.querySelector('[data-name="state"]') ||
+      element.querySelector('[data-name="issuingState"]')
     ) {
       Object.keys(states).forEach((state) => {
         const stateElement = document.createElement("li");

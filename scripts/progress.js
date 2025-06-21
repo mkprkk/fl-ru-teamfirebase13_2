@@ -1,5 +1,6 @@
 const allElements = Array.from(document.querySelectorAll(".form__element"));
 const progressElement = document.querySelector('.progress');
+const formContainer = document.querySelector('.form__container');
 
 function updateProgress() {
   const total = allElements.length;
@@ -19,4 +20,8 @@ function updateProgress() {
   progressElement.style.setProperty("--progress-line", progressRatio);
   progressElement.style.setProperty("--progress-procent", `"${progressPercent}%"`);
   progressElement.style.setProperty("--procent-position", `${posPx}px`);
+
+  if (progressPercent === 100) {
+    formContainer.dataset.allValid = true;
+  }
 }

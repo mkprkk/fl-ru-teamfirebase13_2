@@ -17,12 +17,12 @@
       </div>
       <div class="progress"></div>
     </header>
-    <main class="form__container">
+    <main class="form__container" data-all-valid="false">
       <form class="form">
         <fieldset>
           <div class="form__element">
             <span class="form__element-title">Loan amount up to</span>
-            <ul class="form__select" name="loanAmount">
+            <ul class="form__select" data-name="loanAmount">
               <li data-value="200-500">$200 — $500</li>
               <li data-value="500-1000">$500 — $1,000</li>
               <li data-value="1000-2500">$1,000 — $2,500</li>
@@ -56,7 +56,7 @@
           </div>
           <div class="form__element">
             <span class="form__element-title">Loan purpose</span>
-            <ul class="form__select" name="loanPurpose">
+            <ul class="form__select" data-name="loanPurpose">
               <li data-value="debt-consolidation">Debt consolidation</li>
               <li data-value="everyday-bills-emergency">
                 Everyday Bills/Emergency
@@ -191,15 +191,15 @@
         <fieldset>
           <div class="form__element">
             <span class="form__element-title">State</span>
-            <ul class="form__select" name="state"></ul>
+            <ul class="form__select" data-name="state"></ul>
           </div>
           <div class="form__element">
             <span class="form__element-title">City</span>
-            <ul class="form__select" name="cities"></ul>
+            <ul class="form__select" data-name="cities"></ul>
           </div>
           <div class="form__element">
             <span class="form__element-title">Time of residence</span>
-            <ul class="form__select" name="timeOfResidence">
+            <ul class="form__select" data-name="timeOfResidence">
               <li data-value="10+_years">10+ Years</li>
               <li data-value="over-5-years">Over 5 Years</li>
               <li data-value="2-to-5-years">2 to 5 Years</li>
@@ -234,7 +234,7 @@
             <span class="form__element-title"
               >What is Your Source of Income?</span
             >
-            <ul class="form__select" name="sourceOfIncome">
+            <ul class="form__select" data-name="sourceOfIncome">
               <li data-value="job-income">Job income</li>
               <li data-value="self-employement">Self employement</li>
               <li data-value="benefits">Benefits</li>
@@ -243,7 +243,7 @@
           </div>
           <div class="form__element">
             <span class="form__element-title">Time employed</span>
-            <ul class="form__select" name="time-employed">
+            <ul class="form__select" data-name="time-employed">
               <li data-value="5-years-or-more">5 Years or more</li>
               <li data-value="3-4--years">3 – 4 Years</li>
               <li data-value="1-2--years">1 – 2 Years</li>
@@ -253,7 +253,7 @@
           </div>
           <div class="form__element" data-including-text="Before taxes">
             <span class="form__element-title">Monthly Gross Income</span>
-            <ul class="form__select" name="monthly-gross-income">
+            <ul class="form__select" data-name="monthly-gross-income">
               <li data-value="10000">More than $8,500</li>
               <li data-value="8500">$7,001 — $8,500</li>
               <li data-value="7000">$5,501 — $7,000</li>
@@ -375,7 +375,7 @@
           </div>
           <div class="form__element">
             <span class="form__element-title">How often are you paid?</span>
-            <ul class="form__select" name="paidFrequency">
+            <ul class="form__select" data-name="paidFrequency">
               <li data-value="everyTwoWeeks">Every 2 weeks</li>
               <li data-value="twiceAMonth">Twice a month</li>
               <li data-value="monthly">Monthly</li>
@@ -386,7 +386,7 @@
             <span class="form__element-title"
               >How is Your Paycheck Recieved?</span
             >
-            <ul class="form__select" name="paycheckRecieve">
+            <ul class="form__select" data-name="paycheckRecieve">
               <li data-value="electronicDeposit">Electronic Deposit</li>
               <li data-value="paperCheck">Paper check</li>
             </ul>
@@ -426,14 +426,14 @@
           </div>
           <div class="form__element">
             <span class="form__element-title">Account type</span>
-            <ul class="form__select" name="accountType">
+            <ul class="form__select" data-name="accountType">
               <li data-value="savings">Savings</li>
               <li data-value="checking">Checking</li>
             </ul>
           </div>
           <div class="form__element">
             <span class="form__element-title">Months at bank</span>
-            <ul class="form__select" name="monthAtBank">
+            <ul class="form__select" data-name="monthAtBank">
               <li data-value="more-than-2-years">More than 2 years</li>
               <li data-value="6-12-month">6 – 12 Months</li>
               <li data-value="3-6-month">3 – 6 Months</li>
@@ -472,11 +472,11 @@
           </div>
           <div class="form__element">
             <span class="form__element-title">Issuing state</span>
-            <ul class="form__select" name="issuingState"></ul>
+            <ul class="form__select" data-name="issuingState"></ul>
           </div>
           <div class="form__element">
             <span class="form__element-title">Credit Store</span>
-            <ul class="form__select">
+            <ul class="form__select" data-name="creditStore">
               <li data-value="720+">Excellent (720 +)</li>
               <li data-value="680-719">Good (680 – 719)</li>
               <li data-value="640-679">Fair (640 – 679)</li>
@@ -718,7 +718,7 @@
         <h2>Please double-check your email address is correct</h2>
         <p class="email"></p>
       </div>
-      <div class="email-dialog__button-container align-center flex">
+      <div class="email-dialog__button-container">
         <button class="email-dialog__button-confirm">
           <span class="email__text-button">Confirm</span>
         </button>
@@ -738,5 +738,6 @@
     <script src="./scripts/modal.js"></script>
     <script src="./scripts/calendar.js"></script>
     <script src="./scripts/examples.js"></script>
+    <script src="./scripts/collectData.js"></script>
   </body>
 </html>
