@@ -41,7 +41,6 @@
                   type="radio"
                   data-value="no"
                   name="lowerAmount"
-                  checked
                 />
               </label>
               <label class="radio-element">
@@ -81,6 +80,7 @@
               name="email"
               class="form__input"
               placeholder="e.g. johnsmith@gmail.com"
+              data-error-message="Enter a valid email address (e.g. johnsmith@example.com)"
             />
           </div>
           <label
@@ -88,22 +88,52 @@
             data-including-text="Your phone is never shared without permission"
           >
             <span class="form__element-title">Primary phone</span>
-            <input type="tel" name="primaryNumber" class="form__input" />
+            <input
+              type="tel"
+              name="primaryNumber"
+              class="form__input"
+              pattern="[\+\d\-\(\)\s]+"
+              data-error-message="Enter a valid 10-digit phone number"
+              placeholder="+10 1234567890"
+              maxlength="14"
+            />
           </label>
           <div
             class="form__element"
             data-including-text="Last 4 digits of SSN is used to verify your identity"
           >
             <span class="form__element-title">Last 4 digits of SSN</span>
-            <input type="text" name="lastFourOfSSN" class="form__input" />
+            <input
+              type="text"
+              name="lastFourOfSSN"
+              class="form__input"
+              pattern="\d{4}"
+              placeholder="XXX-XX-"
+              data-error-message="Enter the last 4 digits of your SSN (numbers only)"
+              maxlength="4"
+            />
           </div>
           <div class="form__element">
             <span class="form__element-title">First Name</span>
-            <input type="text" name="firstName" class="form__input" />
+            <input
+              type="text"
+              name="firstName"
+              class="form__input"
+              pattern="[A-Za-z\s\-']+"
+              placeholder="John"
+              data-error-message="Letters, spaces, hyphens, and apostrophes only"
+            />
           </div>
           <div class="form__element">
             <span class="form__element-title">Last Name</span>
-            <input type="text" name="lastName" class="form__input" />
+            <input
+              type="text"
+              name="lastName"
+              class="form__input"
+              pattern="[A-Za-z\s\-']+"
+              placeholder="Smith"
+              data-error-message="Letters, spaces, hyphens, and apostrophes only"
+            />
           </div>
           <div class="form__element">
             <span class="form__element-title">Date of Birth</span>
@@ -111,16 +141,35 @@
               type="text"
               name="dateOfBirth"
               class="form__input"
+              placeholder="MM/DD/YYYY"
               maxlength="14"
+              pattern="\d{2}\/\d{2}\/\d{4}"
+              data-error-message="Enter date in MM/DD/YYYY format"
+              data-type-date="true"
             />
           </div>
           <div class="form__element">
             <span class="form__element-title">Your Zip Code</span>
-            <input type="text" name="zipCode" class="form__input" />
+            <input
+              type="text"
+              name="zipCode"
+              class="form__input"
+              pattern="\d{5}(-\d{4})?"
+              placeholder="e.g., 12345 or 12345-6789"
+              data-error-message="Enter a 5-digit ZIP code or ZIP+4 (e.g., 12345 or 12345-6789)"
+              maxlength="10"
+            />
           </div>
           <div class="form__element">
             <span class="form__element-title">Street Address</span>
-            <input type="text" name="streetAddress" class="form__input" />
+            <input
+              type="text"
+              name="streetAddress"
+              class="form__input"
+              placeholder="123. Street"
+              pattern="[\w\s\-\#\.\,]+"
+              data-error-message="Enter a valid street address (letters, numbers, spaces, #, -, .)"
+            />
           </div>
         </fieldset>
         <div class="form__footer">
@@ -176,7 +225,6 @@
                   data-value="own"
                   name="OwnOrRent"
                   class="form__radio"
-                  checked
                 />
                 Own
               </label>
@@ -219,7 +267,16 @@
           <!-- Нужно придумать как уложить иконки -->
           <div class="form__element next-paydate">
             <span class="form__element-title">Next paydate</span>
-            <input type="text" name="nextPaydate" class="form__input" />
+            <input
+              type="text"
+              name="nextPaydate"
+              class="form__input"
+              placeholder="MM/DD/YYYY"
+              maxlength="14"
+              pattern="\d{2}\/\d{2}\/\d{4}"
+              data-error-message="Enter date in MM/DD/YYYY format"
+              data-type-date="true"
+            />
             <svg
               width="16"
               height="16"
@@ -282,18 +339,39 @@
           </div>
           <div class="form__element">
             <span class="form__element-title">Employer name</span>
-            <input type="text" name="EmployerName" class="form__input" />
+            <input
+              type="text"
+              name="EmployerName"
+              class="form__input"
+              pattern="[A-Za-z0-9\s\-\&\,\.]+"
+              data-error-message="Letters, numbers, spaces, hyphens, &, commas, and periods"
+            />
           </div>
           <div class="form__element">
             <span class="form__element-title">Job title</span>
-            <input type="text" name="jobTitle" class="form__input" />
+            <input
+              type="text"
+              name="jobTitle"
+              class="form__input"
+              placeholder="Starbucks"
+              pattern="[A-Za-z\s\-\&\,]+"
+              data-error-message="Letters, spaces, hyphens, &, and commas"
+            />
           </div>
           <div
             class="form__element"
             data-including-text="We never contact your employer"
           >
             <span class="form__element-title">Work Phone</span>
-            <input type="text" name="streetAddress" class="form__input" />
+            <input
+              type="text"
+              name="streetAddress"
+              class="form__input"
+              pattern="[\+\d\-\(\)\s]+"
+              data-error-message="Enter a valid 10-digit phone number"
+              placeholder="+10 1234567890"
+              maxlength="14"
+            />
           </div>
           <div class="form__element">
             <span class="form__element-title">How often are you paid?</span>
@@ -320,13 +398,31 @@
       </form>
       <form class="form">
         <fieldset>
-          <div class="form__element" data-has-example="true" data-example-url="./assets/images/example.svg">
+          <div
+            class="form__element"
+            data-has-example="true"
+            data-example-url="./assets/images/example.svg"
+          >
             <span class="form__element-title">Bank Routing Number</span>
-            <input type="text" name="bankRoutingNumber" class="form__input" />
+            <input
+              type="text"
+              name="bankRoutingNumber"
+              class="form__input"
+              pattern="\d{9}"
+              maxlength="9"
+              data-error-message="Enter a 9-digit bank routing number"
+            />
           </div>
           <div class="form__element">
             <span class="form__element-title">Bank name</span>
-            <input type="text" name="bankName" class="form__input" />
+            <input
+              type="text"
+              name="bankName"
+              class="form__input"
+              placeholder="Wells Fargo"
+              pattern="[A-Za-z\s\-\&\,\.]+"
+              data-error-message="Letters, spaces, hyphens, &, commas, and periods"
+            />
           </div>
           <div class="form__element">
             <span class="form__element-title">Account type</span>
@@ -345,9 +441,20 @@
               <li data-value="less-than-1-month">Less than 1 Month</li>
             </ul>
           </div>
-          <div class="form__element" data-has-example="true" data-example-url="./assets/images/example.svg">
+          <div
+            class="form__element"
+            data-has-example="true"
+            data-example-url="./assets/images/example.svg"
+          >
             <span class="form__element-title">Bank Account Number</span>
-            <input type="text" name="bankAccountNumber" class="form__input" />
+            <input
+              type="text"
+              name="bankAccountNumber"
+              class="form__input"
+              maxlength="12"
+              pattern="\d{12}"
+              placeholder="702483756012"
+            />
           </div>
           <div class="form__element">
             <span class="form__element-title"
@@ -357,6 +464,10 @@
               type="text"
               name="stateIdOrDriverLicense"
               class="form__input"
+              placeholder="603957402583"
+              maxlength="12"
+              pattern="[A-Za-z0-9\s\-]+"
+              data-error-message="Letters, numbers, spaces, and hyphens only"
             />
           </div>
           <div class="form__element">
@@ -375,7 +486,15 @@
           </div>
           <div class="form__element">
             <span class="form__element-title">Social Security Number</span>
-            <input type="text" name="SSN" class="form__input" />
+            <input
+              type="text"
+              name="SSN"
+              class="form__input"
+              placeholder="XXX-XX-XXXX"
+              maxlength="11"
+              pattern="\d{3}-\d{2}-\d{4}"
+              data-error-message="Enter SSN in XXX-XX-XXXX format"
+            />
           </div>
           <div class="form__footer"></div>
         </fieldset>
@@ -431,7 +550,12 @@
           </button>
         </template>
         <template id="request-button">
-          <button type="button" class="form__button" id="requestButton">
+          <button
+            type="button"
+            class="form__button"
+            id="requestButton"
+            onclick="window.location.href='https://www.google.com/'"
+          >
             <span>Request Cash</span>
             <svg
               width="24"
@@ -605,6 +729,8 @@
     </dialog>
 
     <script src="./scripts/init.js"></script>
+    <script src="./scripts/validity.js"></script>
+    <script src="./scripts/utils.js"></script>
     <script src="./scripts/navigation.js"></script>
     <script src="./scripts/states.js"></script>
     <script src="./scripts/input.js"></script>

@@ -90,6 +90,8 @@ function handleDayClick(dayEl, date) {
 
     calendarInput.value = hiddenInput.value;
 
+    calendarInput.dispatchEvent(new Event("input", { bubbles: true }));
+
     closeCalendar();
   });
 }

@@ -8,19 +8,34 @@ let currentStepIdx = 0;
 document.addEventListener("click", (evt) => {
   const nextButton = evt.target.closest("#nextButton");
   const prevButton = evt.target.closest("#prevButton");
-  evt.preventDefault();
 
   if (nextButton) {
+    evt.preventDefault();
     nextStep(forms, evt);
   } else if (prevButton) {
+    evt.preventDefault();
     prevStep(forms);
   }
 });
 
 document.addEventListener("keydown", (evt) => {
   if (evt.key === "Enter") {
+    const activeForm = document.querySelector("form:not(.hidden)");
+    if (!activeForm) return;
+
+    checkFormValidity(activeForm);
+
+    const isButtonDisabled =
+      activeForm.querySelector("#nextButton")?.disabled ||
+      activeForm.querySelector("#requestButton")?.disabled;
+
+    if (isButtonDisabled) {
+      evt.preventDefault();
+      return;
+    }
+
     evt.preventDefault();
-    nextStep(forms, evt);
+    nextStep(forms);
   }
 });
 

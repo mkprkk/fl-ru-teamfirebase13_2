@@ -3,9 +3,16 @@ const citiesElement = citiesInput.closest(".form__element");
 citiesElement.classList.add("unactive");
 
 const openFieldHandler = (evt) => {
-  const formElement = evt.target.closest(".form__element");
-  if (formElement) openField(formElement, evt);
+  const formElement = evt.target?.closest(".form__element");
+
+  if (!formElement) return;
+
+  if (formElement.classList.contains("radio")) return;
+
+  // Иначе вызываем openField
+  openField(formElement, evt);
 };
+
 document.addEventListener("click", openFieldHandler);
 
 function closeSelectInput(input, value, element) {
@@ -41,6 +48,13 @@ function selectElementHandleClick(input, value, evt, element) {
   closeSelectInput(input, value, element);
   value.textContent = evt.target.textContent;
   value.dataset.value = evt.target.dataset.value;
+
+  // Добавим проверку на наличие значения
+  if (value.dataset.value) {
+    element.classList.add("element-active");
+  } else {
+    element.classList.remove("element-active");
+  }
 
   if (evt.currentTarget === document.querySelector('[name="state"]')) {
     setCitiesByState();
@@ -79,7 +93,7 @@ function openField(element) {
       }
     });
     document.addEventListener("click", (evt) => {
-      if (!element.contains(evt.target)) {
+      if (!evt.target.closest(".element-opened")) {
         closeSelectInput(input, value, element);
       }
     });
