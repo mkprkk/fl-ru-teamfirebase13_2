@@ -1,0 +1,29 @@
+:root {
+  /* Цвета текста */
+  --header-h2-color: #767681;
+  --form-disclaimer-color: #767681;
+  --form-safety-bot-color: #767681;
+  --including-text-color: #767681;
+
+  /* Цвета фона */
+  --progress-bg-color: #f0f0f8;
+  --form-element-bg-color: #f0f0f8;
+  
+  /* Акцентные цвета */
+  --progress-after-bg-color: #b16612;
+  --progress-before-bg-color: #ca7515;
+  --form-button-bg-color: #ca7515;
+  --select-open-li-hover-bg-color: #ca7515;
+  --email-dialog-button-edit-bg-color: #ca7515;
+  
+  /* Цвета при наведении */
+  --form-element-hover-title-color: #ca7515;
+  --form-button-hover-color: black;
+  
+  /* Специальные фоны */
+  --element-active-bg-color: #f1e1fb80;
+  --radio-element-bg-color: #f1e1fb80;
+  
+  /* Кнопки */
+  --email-dialog-button-confirm-bg-color: #ffb662;
+}

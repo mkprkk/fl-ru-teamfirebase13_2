@@ -17,7 +17,7 @@ function updateProgress() {
 
   posPx = Math.max(0, Math.min(posPx, barWidth - bubbleWidth));
 
-  progressElement.style.setProperty("--progress-line", progressRatio);
+  progressElement.style.setProperty("--progress-line", `${progressRatio * 100}%`);
   progressElement.style.setProperty("--progress-procent", `"${progressPercent}%"`);
   progressElement.style.setProperty("--procent-position", `${posPx}px`);
 
