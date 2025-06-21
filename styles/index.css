@@ -98,19 +98,21 @@ header h2 {
   background-color: #f0f0f8;
   border-radius: 1000px;
   position: relative;
+  /* overflow: hidden; */
 }
 .progress::after {
   content: "";
+  transform: scaleX(var(--progress-line));
+  transition: transform 1s;
   width: 100%;
   height: 100%;
   border-radius: 1000px;
   background-color: #b16612;
   position: absolute;
   transform-origin: left;
-  transform: scaleX(1);
 }
 .progress::before {
-  content: "100%";
+  content: var(--progress-procent);
   text-align: center;
   align-content: center;
   font-size: 15px;
@@ -122,7 +124,8 @@ header h2 {
   background-color: #ca7515;
   position: absolute;
   z-index: 1;
-  left: calc(100% - 42px);
+  left: var(--procent-position);
+  transition: left 1s;
 }
 /* Форма */
 .form {

@@ -49,12 +49,15 @@ function selectElementHandleClick(input, value, evt, element) {
   value.textContent = evt.target.textContent;
   value.dataset.value = evt.target.dataset.value;
 
-  // Добавим проверку на наличие значения
   if (value.dataset.value) {
-    element.classList.add("element-active");
+    element.classList.add("element-active", "valid");
   } else {
-    element.classList.remove("element-active");
+    element.classList.remove("element-active", "valid");
   }
+
+  const formElement = element.closest('form');
+
+  checkFormValidity(formElement);
 
   if (evt.currentTarget === document.querySelector('[name="state"]')) {
     setCitiesByState();

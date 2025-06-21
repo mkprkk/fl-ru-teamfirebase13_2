@@ -4,7 +4,7 @@ function showError(formInput, formElement) {
 
   if (existingError) {
     existingError.classList.remove("hide-error");
-    formElement.classList.remove("element-active");
+    formElement.classList.remove("element-active", "valid");
   } else {
     const errorContainer = document.createElement("p");
     errorContainer.classList.add("form-error");
@@ -23,49 +23,34 @@ function hideError(formInput, formElement) {
     existingError.classList.add("hide-error");
   }
 
-  if (formInput.value.trim() === "") {
+  const isRadioGroup = formElement.classList.contains("radio");
+  const isEmpty = formInput.value?.trim() === "";
+
+  if (isEmpty && !isRadioGroup) {
     formElement.classList.remove("element-active");
-  } else {
+  } else if (!isRadioGroup) {
     formElement.classList.add("element-active");
+    formElement.classList.add("valid");
   }
 }
 
 function checkFormValidity(form) {
-  const inputs = Array.from(form.querySelectorAll(".form__input"));
-  const selects = Array.from(form.querySelectorAll(".select__value"));
-  const radioGroups = Array.from(form.querySelectorAll(".form__element.radio"));
-
-  const anyEmptyInput = inputs.some((input) => input.value.trim() === "");
-
-  const anyEmptySelect = selects.some(
-    (select) => select.textContent.trim() === ""
-  );
-
-  const anyEmptyRadioGroup = radioGroups.some((group) => {
-    const radios = group.querySelectorAll('input[type="radio"]');
-    const name = radios[0]?.name;
-    if (!name) return true;
-    return !form.querySelector(`input[name="${name}"]:checked`);
-  });
-
-  const errors = Array.from(
-    form.querySelectorAll(".form-error:not(.hide-error)")
-  );
-
+  const allElements = Array.from(form.querySelectorAll(".form__element"));
   const button =
     form.querySelector("#nextButton") || form.querySelector("#requestButton");
   if (!button) return;
 
-  const isInvalid =
-    errors.length > 0 || anyEmptyInput || anyEmptySelect || anyEmptyRadioGroup;
+  const allValid = allElements.every((el) => el.classList.contains("valid"));
 
-  if (isInvalid) {
-    button.classList.add("button-disbaled");
-    button.disabled = true;
-  } else {
+  if (allValid) {
     button.classList.remove("button-disbaled");
     button.disabled = false;
+  } else {
+    button.classList.add("button-disbaled");
+    button.disabled = true;
   }
+
+  updateProgress();
 }
 
 function handleValidation(evt) {
@@ -74,6 +59,7 @@ function handleValidation(evt) {
   if (!formInput) return;
 
   const isValid = formInput.validity.valid;
+
 
   if (!isValid) {
     showError(formInput, formElement);
@@ -87,15 +73,35 @@ function handleValidation(evt) {
   }
 }
 
+function validateRadioGroup(groupElement) {
+  const radios = groupElement.querySelectorAll('input[type="radio"]');
+  if (!radios) return;
+
+  const name = radios[0].name;
+  const checked = groupElement.querySelector(`input[name="${name}"]:checked`);
+
+  if (checked) {
+    groupElement.classList.add("valid");
+    hideError(radios[0], groupElement);
+  } else {
+    groupElement.classList.remove("valid");
+    showError(radios[0], groupElement);
+  }
+}
+
+document.querySelectorAll("form").forEach((form) => {
+  checkFormValidity(form);
+});
+
 document.addEventListener("input", handleValidation);
 
 document.addEventListener("change", (evt) => {
   const form = evt.target.closest("form");
-  if (form) {
-    checkFormValidity(form);
-  }
-});
+  const formElement = evt.target.closest(".form__element");
 
-document.querySelectorAll("form").forEach((form) => {
-  checkFormValidity(form);
+  if (formElement?.classList.contains("radio")) {
+    validateRadioGroup(formElement);
+  }
+
+  if (form) checkFormValidity(form);
 });
