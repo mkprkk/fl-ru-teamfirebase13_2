@@ -1,7 +1,3 @@
-const citiesInput = document.querySelector('[data-name="cities"]');
-const citiesElement = citiesInput.closest(".form__element");
-citiesElement.classList.add("unactive");
-
 const openFieldHandler = (evt) => {
   const formElement = evt.target?.closest(".form__element");
 
@@ -9,7 +5,6 @@ const openFieldHandler = (evt) => {
 
   if (formElement.classList.contains("radio")) return;
 
-  // Иначе вызываем openField
   openField(formElement, evt);
 };
 
@@ -21,25 +16,6 @@ function closeSelectInput(input, value, element) {
   input.classList.add("selected");
   value.hidden = false;
   element.style.setProperty("--rotate", "0deg");
-}
-
-function setCitiesByState() {
-  const citiesListItems = citiesInput.querySelectorAll(
-    "li:not(.select__value)"
-  );
-  citiesListItems.forEach((li) => li.remove());
-  const stateValue = document
-    .querySelector('[data-name="state"]')
-    .querySelector(".select__value").dataset.value;
-  const currentCities = states[stateValue];
-  currentCities.forEach((city) => {
-    const cityElement = document.createElement("li");
-    cityElement.dataset.value = city;
-    cityElement.textContent = city;
-    citiesInput.append(cityElement);
-    if (citiesInput.children.length !== 1)
-      citiesElement.classList.remove("unactive");
-  });
 }
 
 function selectElementHandleClick(input, value, evt, element) {
@@ -55,17 +31,14 @@ function selectElementHandleClick(input, value, evt, element) {
     element.classList.remove("element-active", "valid");
   }
 
-  const formElement = element.closest('form');
+  const formElement = element.closest("form");
 
   checkFormValidity(formElement);
-
-  if (evt.currentTarget === document.querySelector('[data-name="state"]')) {
-    setCitiesByState();
-  }
 }
 
 function openField(element) {
   if (element.classList.contains("email-element")) return;
+
   const title = element.querySelector(".form__element-title");
   const input =
     element.querySelector(".form__input") ||
@@ -79,6 +52,40 @@ function openField(element) {
 
   if (input.classList.contains("form__input")) {
     input.focus();
+  }
+
+  if (input.type === "tel") {
+    input.value = "+1 ";
+    input.setSelectionRange(input.value.length, input.value.length);
+    input.addEventListener("keydown", (evt) => {
+      if (
+        input.selectionStart <= 3 &&
+        (evt.key === "Backspace" || evt.key === "Delete")
+      ) {
+        evt.preventDefault();
+      }
+    });
+  }
+
+  if (input.getAttribute("inputmode") === "numeric") {
+    input.addEventListener("keydown", (evt) => {
+      const allowedKeys = [
+        "Backspace",
+        "Delete",
+        "ArrowLeft",
+        "ArrowRight",
+        "Tab",
+        "Home",
+        "End",
+      ];
+
+      const isNumberKey = /^[0-9-]$/.test(evt.key);
+      const isAllowedKey = allowedKeys.includes(evt.key);
+
+      if (!isNumberKey && !isAllowedKey) {
+        evt.preventDefault();
+      }
+    });
   }
 
   if (input.classList.contains("form__select")) {

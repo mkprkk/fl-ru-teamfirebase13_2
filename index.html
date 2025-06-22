@@ -91,12 +91,13 @@
             <span class="form__element-title">Primary phone</span>
             <input
               type="tel"
+              inputmode="numeric"
               name="primaryNumber"
               class="form__input"
-              pattern="[\+\d\-\(\)\s]+"
+              pattern="\+1 \d{10}"
               data-error-message="Enter a valid 10-digit phone number"
-              placeholder="+10 1234567890"
-              maxlength="14"
+              placeholder="+1 1234567890"
+              maxlength="13"
             />
           </label>
           <div
@@ -106,6 +107,7 @@
             <span class="form__element-title">Last 4 digits of SSN</span>
             <input
               type="text"
+              inputmode="numeric"
               name="lastFourOfSSN"
               class="form__input"
               pattern="\d{4}"
@@ -153,6 +155,7 @@
             <span class="form__element-title">Your Zip Code</span>
             <input
               type="text"
+              inputmode="numeric"
               name="zipCode"
               class="form__input"
               pattern="\d{5}(-\d{4})?"
@@ -196,12 +199,20 @@
           </div>
           <div class="form__element">
             <span class="form__element-title">City</span>
-            <ul class="form__select" data-name="cities"></ul>
+            <!-- <ul class="form__select" data-name="cities"></ul> -->
+            <input
+              type="text"
+              name="City"
+              class="form__input"
+              pattern="[A-Za-z\u0080-\uFFFF\s\-']+"
+              placeholder="New York"
+              data-error-message="Please enter a valid city name (only letters, spaces, hyphens, and apostrophes)"
+              maxlength="100"
+            />
           </div>
           <div class="form__element">
             <span class="form__element-title">Time of residence</span>
             <ul class="form__select" data-name="timeOfResidence">
-              <li data-value="10+_years">10+ Years</li>
               <li data-value="over-5-years">Over 5 Years</li>
               <li data-value="2-to-5-years">2 to 5 Years</li>
               <li data-value="1-to-2 years">1 to 2 Years</li>
@@ -365,12 +376,13 @@
           >
             <span class="form__element-title">Work Phone</span>
             <input
-              type="text"
+              type="tel"
+              inputmode="numeric"
               name="streetAddress"
               class="form__input"
               pattern="[\+\d\-\(\)\s]+"
               data-error-message="Enter a valid 10-digit phone number"
-              placeholder="+10 1234567890"
+              placeholder="+1 1234567890"
               maxlength="14"
             />
           </div>
@@ -407,6 +419,7 @@
             <span class="form__element-title">Bank Routing Number</span>
             <input
               type="text"
+              inputmode="numeric"
               name="bankRoutingNumber"
               class="form__input"
               pattern="\d{9}"
@@ -450,6 +463,7 @@
             <span class="form__element-title">Bank Account Number</span>
             <input
               type="text"
+              inputmode="numeric"
               name="bankAccountNumber"
               class="form__input"
               maxlength="12"
@@ -489,6 +503,7 @@
             <span class="form__element-title">Social Security Number</span>
             <input
               type="text"
+              inputmode="numeric"
               name="SSN"
               class="form__input"
               placeholder="XXX-XX-XXXX"

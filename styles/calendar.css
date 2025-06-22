@@ -105,6 +105,7 @@
 }
 
 .calendar-icon-svg {
+  left: calc(89.5% + 2.65px);
   cursor: pointer;
   transition: scale 0.2s, filter 0.2s;
 }
